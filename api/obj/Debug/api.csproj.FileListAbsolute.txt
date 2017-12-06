@@ -1,0 +1,13 @@
+F:\技术项目\callcenter\callcenter\api\bin\api.dll.config
+F:\技术项目\callcenter\callcenter\api\bin\api.dll
+F:\技术项目\callcenter\callcenter\api\bin\api.pdb
+F:\技术项目\callcenter\callcenter\api\bin\Newtonsoft.Json.dll
+F:\技术项目\callcenter\callcenter\api\obj\Debug\api.dll
+F:\技术项目\callcenter\callcenter\api\obj\Debug\api.pdb
+F:\技术项目\callcenter\callcenter\api\bin\bll.dll
+F:\技术项目\callcenter\callcenter\api\bin\modal.dll
+F:\技术项目\callcenter\callcenter\api\bin\dal.dll
+F:\技术项目\callcenter\callcenter\api\bin\bll.pdb
+F:\技术项目\callcenter\callcenter\api\bin\modal.pdb
+F:\技术项目\callcenter\callcenter\api\bin\dal.pdb
+F:\技术项目\callcenter\callcenter\api\obj\Debug\api.csprojResolveAssemblyReference.cache

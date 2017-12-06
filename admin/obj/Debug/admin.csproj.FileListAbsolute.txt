@@ -1,0 +1,7 @@
+F:\技术项目\callcenter\callcenter\admin\bin\Debug\admin.exe
+F:\技术项目\callcenter\callcenter\admin\bin\Debug\admin.pdb
+F:\技术项目\callcenter\callcenter\admin\obj\Debug\admin.Form1.resources
+F:\技术项目\callcenter\callcenter\admin\obj\Debug\admin.Properties.Resources.resources
+F:\技术项目\callcenter\callcenter\admin\obj\Debug\admin.csproj.GenerateResource.Cache
+F:\技术项目\callcenter\callcenter\admin\obj\Debug\admin.exe
+F:\技术项目\callcenter\callcenter\admin\obj\Debug\admin.pdb
