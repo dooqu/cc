@@ -5,3 +5,12 @@ F:\技术项目\callcenter\callcenter\admin\obj\Debug\admin.Properties.Resources
 F:\技术项目\callcenter\callcenter\admin\obj\Debug\admin.csproj.GenerateResource.Cache
 F:\技术项目\callcenter\callcenter\admin\obj\Debug\admin.exe
 F:\技术项目\callcenter\callcenter\admin\obj\Debug\admin.pdb
+C:\Users\fanyihua\Documents\GitHub\callcenter\admin\obj\Debug\admin.exe
+C:\Users\fanyihua\Documents\GitHub\callcenter\admin\obj\Debug\admin.pdb
+C:\Users\fanyihua\Documents\GitHub\callcenter\admin\bin\Debug\admin.exe
+C:\Users\fanyihua\Documents\GitHub\callcenter\admin\bin\Debug\admin.pdb
+C:\Users\fanyihua\Documents\GitHub\callcenter\admin\obj\Debug\admin.csprojResolveAssemblyReference.cache
+C:\Users\fanyihua\Documents\GitHub\callcenter\admin\obj\Debug\admin.Properties.Resources.resources
+C:\Users\fanyihua\Documents\GitHub\callcenter\admin\obj\Debug\admin.csproj.GenerateResource.Cache
+C:\Users\fanyihua\Documents\GitHub\callcenter\admin\obj\Debug\admin.mainForm.resources
+C:\Users\fanyihua\Documents\GitHub\callcenter\admin\obj\Debug\admin.loginForm.resources
