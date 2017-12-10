@@ -16,6 +16,7 @@ namespace admin
         {
             InitializeComponent();
 
+            // //添加 结清
             //Job_ClearanceInfo cf = new Job_ClearanceInfo();
             //cf.UserName = "sunjian";
             //cf.MobilePhone = "13693665974";
@@ -32,6 +33,8 @@ namespace admin
             //cf.OperationDateTime = DateTime.Now;
             //cf.CreateDateTime = DateTime.Now;
             //cf.IsDelete = 0;
+            //DataProvider.Add_Job_Clearance(cf);
+            /////
             //Job_MobileChangeInfo mf = new Job_MobileChangeInfo();
             //mf.UserName = "sunjian";
             //mf.MobilePhone = "13693665974";
@@ -45,6 +48,8 @@ namespace admin
             //mf.OperationDateTime = DateTime.Now;
             //mf.CreateDateTime = DateTime.Now;
             //mf.IsDelete = 0;
+            //DataProvider.Add_Job_MobileChange(mf);
+
             //Jod_BankcardChangeInfo bf = new Jod_BankcardChangeInfo();
             //bf.UserName = "fanyihua";
             //bf.MobilePhone = "138983998987";
@@ -59,6 +64,8 @@ namespace admin
             //bf.OperationDateTime = DateTime.Now;
             //bf.CreateDateTime = DateTime.Now;
             //bf.IsDelete = 0;
+            //DataProvider.Add_Job_BankcardChange(bf);
+
             //Job_AddMessageInfo af = new Job_AddMessageInfo();
             //af.UserName = "fanyihua";
             //af.MobilePhone = "137898988484893";
@@ -70,6 +77,8 @@ namespace admin
             //af.OperationDateTime = DateTime.Now;
             //af.CreateDateTime = DateTime.Now;
             //af.IsDelete = 0;
+            //DataProvider.Add_Job_AddMessage(af);
+
             //Job_OtherMessageInfo of = new Job_OtherMessageInfo();
             //of.UserName = "sunjian";
             //of.MobilePhone = "136888989898";
@@ -80,6 +89,7 @@ namespace admin
             //of.OperationDateTime = DateTime.Now;
             //of.CreateDateTime = DateTime.Now;
             //of.IsDelete = 0;
+            //DataProvider.Add_Job_OtherMessage(of);
 
             //Job_AttachmentInfo atI = new Job_AttachmentInfo();
             //atI.FileName = "filename";
@@ -89,13 +99,6 @@ namespace admin
             //atI.JobType = 1;
             //atI.IsDelete = 0;
             //atI.CreateDateTime = DateTime.Now;
-
-            ////添加
-            //DataProvider.Add_Job_Clearance(cf);
-            //DataProvider.Add_Job_MobileChange(mf);
-            //DataProvider.Add_Job_BankcardChange(bf);
-            //DataProvider.Add_Job_AddMessage(af);
-            //DataProvider.Add_Job_OtherMessage(of);
             //DataProvider.Add_Job_Attachment(atI);
 
             ////update
@@ -115,7 +118,7 @@ namespace admin
             //of.Status = 1;
             //DataProvider.Update_Job_OtherMessage(of);
 
-            //list
+            
             //List<Job_ClearanceInfo> cInfoList = new List<Job_ClearanceInfo>();
             //cInfoList = DataProvider.GetJob_ClearanceById();
 
