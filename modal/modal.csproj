@@ -35,23 +35,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="AreaInfo.cs" />
+    <Compile Include="JobInfo.cs" />
     <Compile Include="Job_AddMessageInfo.cs" />
     <Compile Include="Job_AttachmentInfo.cs" />
     <Compile Include="Job_ClearanceInfo.cs" />
     <Compile Include="Job_MobileChangeInfo.cs" />
     <Compile Include="Job_OtherMessageInfo.cs" />
     <Compile Include="Jod_BankcardChangeInfo.cs" />
-=======
-    <Compile Include="JobInfo.cs" />
->>>>>>> 51ce6e033efa369ebc966dec784e9dd84d71c663
     <Compile Include="OperatorInfo.cs" />
     <Compile Include="ResponseInfo.cs" />
     <Compile Include="RoleInfo.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionInfo.cs" />
+    <Compile Include="UserPicInfo.cs" />
     <Compile Include="WechatSessionInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
