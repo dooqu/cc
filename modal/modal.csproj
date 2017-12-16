@@ -35,6 +35,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="AreaInfo.cs" />
     <Compile Include="Job_AddMessageInfo.cs" />
     <Compile Include="Job_AttachmentInfo.cs" />
@@ -42,6 +43,9 @@
     <Compile Include="Job_MobileChangeInfo.cs" />
     <Compile Include="Job_OtherMessageInfo.cs" />
     <Compile Include="Jod_BankcardChangeInfo.cs" />
+=======
+    <Compile Include="JobInfo.cs" />
+>>>>>>> 51ce6e033efa369ebc966dec784e9dd84d71c663
     <Compile Include="OperatorInfo.cs" />
     <Compile Include="ResponseInfo.cs" />
     <Compile Include="RoleInfo.cs" />

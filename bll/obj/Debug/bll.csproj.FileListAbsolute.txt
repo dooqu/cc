@@ -12,3 +12,12 @@ F:\技术项目\callcenter\callcenter\bll\bin\Debug\dal.dll
 F:\技术项目\callcenter\callcenter\bll\bin\Debug\modal.dll
 F:\技术项目\callcenter\callcenter\bll\bin\Debug\dal.pdb
 F:\技术项目\callcenter\callcenter\bll\bin\Debug\modal.pdb
+C:\Users\fanyihua\Documents\GitHub\callcenter\bll\bin\Debug\bll.dll
+C:\Users\fanyihua\Documents\GitHub\callcenter\bll\bin\Debug\bll.pdb
+C:\Users\fanyihua\Documents\GitHub\callcenter\bll\bin\Debug\dal.dll
+C:\Users\fanyihua\Documents\GitHub\callcenter\bll\bin\Debug\modal.dll
+C:\Users\fanyihua\Documents\GitHub\callcenter\bll\bin\Debug\dal.pdb
+C:\Users\fanyihua\Documents\GitHub\callcenter\bll\bin\Debug\modal.pdb
+C:\Users\fanyihua\Documents\GitHub\callcenter\bll\obj\Debug\bll.csprojResolveAssemblyReference.cache
+C:\Users\fanyihua\Documents\GitHub\callcenter\bll\obj\Debug\bll.dll
+C:\Users\fanyihua\Documents\GitHub\callcenter\bll\obj\Debug\bll.pdb

@@ -52,16 +52,39 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="index.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClearanceHandler.ashx.cs">
+      <DependentUpon>ClearanceHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="page\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <None Include="Properties\PublishProfiles\api.pubxml" />
+=======
+    <Content Include="ClearanceHandler.ashx" />
+    <Content Include="Site.Master" />
+>>>>>>> 51ce6e033efa369ebc966dec784e9dd84d71c663
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -73,6 +96,10 @@
     <ProjectReference Include="..\bll\bll.csproj">
       <Project>{2e246301-c35a-496f-ac42-5d7902d61f3f}</Project>
       <Name>bll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\dal\dal.csproj">
+      <Project>{687579b7-5f76-4ccf-ac41-fdf61ee9e0da}</Project>
+      <Name>dal</Name>
     </ProjectReference>
     <ProjectReference Include="..\modal\modal.csproj">
       <Project>{975a52b0-0128-412c-aaf0-98a22d6d1f24}</Project>
