@@ -54,53 +54,9 @@ namespace callcenter.dal
                 new SqlParameter("@MobilePhone", ci.MobilePhone),
                 new SqlParameter("@ChannelCustomer", ci.ChannelCustomer),
                 new SqlParameter("@CustomerRemark", ci.CustomerRemark),
-                new SqlParameter("@Status", ci.Status),
-                new SqlParameter("@ErrorMessage", ci.ErrorMessage),
-                new SqlParameter("@Operation", ci.Operation),
-                new SqlParameter("@OperationDateTime", ci.OperationDateTime),
-                new SqlParameter("@CreateDateTime", ci.CreateDateTime),
-                new SqlParameter("@IsDelete", ci.IsDelete),
 
                 new SqlParameter("@Area", ci.Area),
                 new SqlParameter("@Address", ci.Address),
-                new SqlParameter("@ExpressNumber", ci.ExpressNumber),
-                new SqlParameter("@DueBillNumber", ci.DueBillNumber),
-                new SqlParameter("@ClearanceImage", ci.ClearanceImage),
-
-                new SqlParameter("@MobileChangeType", ci.MobileChangeType),
-                new SqlParameter("@MobilePhoneOld", ci.MobilePhoneOld),
-                new SqlParameter("@MobilePhoneNew", ci.MobilePhoneNew),
-
-                new SqlParameter("@OldBankcard", ci.OldBankcard),
-                new SqlParameter("@NewBankcard", ci.NewBankcard),
-
-                new SqlParameter("@Image1", ci.Image1),
-                new SqlParameter("@Image2", ci.Image2),
-                new SqlParameter("@Image3", ci.Image3),
-                new SqlParameter("@Image4", ci.Image4),
-                new SqlParameter("@Image5", ci.Image5)));
-               
-        }
-
-
-        public static int UpdateJobInfo(JobInfo ci)
-        {
-            return Convert.ToInt32(SqlHelper.ExecuteScalar(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "[UpdateJobInfo]",
-                new SqlParameter("@ID", ci.ID),
-                new SqlParameter("@UserId", ci.UserId),
-                new SqlParameter("@JobType", ci.JobType),
-                new SqlParameter("@UserName", ci.UserName),
-                new SqlParameter("@IdentityCard", ci.IdentityCard),
-                new SqlParameter("@MobilePhone", ci.MobilePhone),
-                new SqlParameter("@ChannelCustomer", ci.ChannelCustomer),
-                new SqlParameter("@CustomerRemark", ci.CustomerRemark),
-                new SqlParameter("@CreateDateTime", ci.CreateDateTime),
-
-                new SqlParameter("@Area", ci.Area),
-                new SqlParameter("@Address", ci.Address),
-                new SqlParameter("@ExpressNumber", ci.ExpressNumber),
-                new SqlParameter("@DueBillNumber", ci.DueBillNumber),
-                new SqlParameter("@ClearanceImage", ci.ClearanceImage),
 
                 new SqlParameter("@MobileChangeType", ci.MobileChangeType),
                 new SqlParameter("@MobilePhoneOld", ci.MobilePhoneOld),
@@ -108,7 +64,9 @@ namespace callcenter.dal
 
                 new SqlParameter("@OldBankcard", ci.OldBankcard),
                 new SqlParameter("@NewBankcard", ci.NewBankcard)));
+               
         }
+
 
         /// <summary>
         /// 更新图片附件 
