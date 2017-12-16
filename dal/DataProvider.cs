@@ -85,6 +85,80 @@ namespace callcenter.dal
                 new SqlParameter("@imageName", imageName)));
         }
 
+        public static void ReadJobInfo(JobInfo job, SqlDataReader reader)
+        {
+            job.ID = Convert.ToInt32(reader["ID"]);
+            job.UserId = Convert.ToInt32(reader["UserId"]);
+            job.JobType = Convert.ToInt32(reader["JobType"]);
+            job.UserName = Convert.ToString(reader["UserName"]);
+            job.IdentityCard = Convert.ToString(reader["IdentityCard"]);
+            job.MobilePhone = Convert.ToString(reader["MobilePhone"]);
+            job.ChannelCustomer = Convert.ToString(reader["ChannelCustomer"]);
+            job.CustomerRemark = Convert.ToString(reader["CustomerRemark"]);
+            job.Status = Convert.ToInt32(reader["Status"]);
+            job.ErrorMessage = Convert.ToString(reader["ErrorMessage"]);
+            job.Status = Convert.ToInt32(reader["Status"]);
+            
+            job.OperationDateTime = (reader["OperationDateTime"] == DBNull.Value) ? DateTime.Now : Convert.ToDateTime(reader["OperationDateTime"]);
+            job.CreateDateTime = Convert.ToDateTime(reader["CreateDateTime"]);
+            job.IsDelete = Convert.ToInt32(reader["IsDelete"]);
+
+            job.Operation = (reader["Operation"] == DBNull.Value) ? 0 : Convert.ToInt32(reader["Operation"]);
+            job.Area = reader["Area"] == DBNull.Value ? "" : Convert.ToString(reader["Area"]);
+            job.Address = reader["Address"] == DBNull.Value ? "" : Convert.ToString(reader["Address"]);
+            job.ExpressNumber = reader["ExpressNumber"] == DBNull.Value ? "" : Convert.ToString(reader["ExpressNumber"]);
+            job.DueBillNumber = reader["DueBillNumber"] == DBNull.Value ? "" : Convert.ToString(reader["DueBillNumber"]);
+            //job.ClearanceImage = reader["ClearanceImage"] == DBNull.Value ? "" : Convert.ToString(reader["ClearanceImage"]);
+
+            job.MobileChangeType = Convert.ToInt32(reader["MobileChangeType"]);
+            job.MobilePhoneOld = reader["MobilePhoneOld"] == DBNull.Value ? "" : Convert.ToString(reader["MobilePhoneOld"]);
+            job.MobilePhoneNew = reader["MobilePhoneNew"] == DBNull.Value ? "" : Convert.ToString(reader["MobilePhoneNew"]);
+
+            job.OldBankcard = reader["OldBankcard"] == DBNull.Value ? "" : Convert.ToString(reader["OldBankcard"]);
+            job.NewBankcard = reader["NewBankcard"] == DBNull.Value ? "" : Convert.ToString(reader["NewBankcard"]);
+
+            job.Image1 = reader["Image1"] == DBNull.Value ? null : Convert.ToString(reader["Image1"]);
+            job.Image2 = reader["Image2"] == DBNull.Value ? null : Convert.ToString(reader["Image2"]);
+            job.Image3 = reader["Image3"] == DBNull.Value ? null : Convert.ToString(reader["Image3"]);
+            job.Image4 = reader["Image4"] == DBNull.Value ? null : Convert.ToString(reader["Image4"]);
+            job.Image5 = reader["Image5"] == DBNull.Value ? null : Convert.ToString(reader["Image5"]);
+
+        }
+
+        public static List<JobInfo> GetJobsByUserId(int userId)
+        {
+            List<JobInfo> jobs = new List<JobInfo>();
+
+            using (SqlDataReader reader = SqlHelper.ExecuteReader(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "GetJobsByUserId",
+                new SqlParameter("@UserId", userId)))
+            {
+                while(reader.Read())
+                {
+                    JobInfo job = new JobInfo();
+                    ReadJobInfo(job, reader);
+                    jobs.Add(job);
+                }
+            }
+
+            return jobs;
+        }
+
+        public static JobInfo GetJobInfoById(int jobId)
+        {
+            using (SqlDataReader reader = SqlHelper.ExecuteReader(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "GetJobInfoById",
+    new SqlParameter("@JobId", jobId)))
+            {
+                if (reader.Read())
+                {
+                    JobInfo job = new JobInfo();
+                    ReadJobInfo(job, reader);
+                    return job;
+                }
+            }
+
+            return null;
+        }
+
         public static List<JobInfo> GetJobInfoList(JobInfo ci)
         {
             SqlDataReader reader = SqlHelper.ExecuteReader(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "GetJobInfo",

@@ -61,6 +61,12 @@
     <Compile Include="GetAreas.ashx.cs">
       <DependentUpon>GetAreas.ashx</DependentUpon>
     </Compile>
+    <Compile Include="GetJobInfoById.ashx.cs">
+      <DependentUpon>GetJobInfoById.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="GetMyJobs.ashx.cs">
+      <DependentUpon>GetMyJobs.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -80,6 +86,8 @@
     <Content Include="SessionLogin.ashx" />
     <Content Include="GetAreas.ashx" />
     <Content Include="NewJob.ashx" />
+    <Content Include="GetMyJobs.ashx" />
+    <Content Include="GetJobInfoById.ashx" />
     <None Include="Properties\PublishProfiles\service.pubxml" />
     <Content Include="UpdateJob.ashx" />
     <None Include="Web.Debug.config">

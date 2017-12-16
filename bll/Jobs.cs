@@ -17,5 +17,15 @@ namespace callcenter.bll
         {
             return DataProvider.UpdateJobInfoImage(jobId, imageType, imgUrl);
         }
+
+        public static List<JobInfo> GetJobsByUserId(int userId)
+        {
+            return DataProvider.GetJobsByUserId(userId);
+        }
+
+        public static JobInfo GetJobInfoById(int jobId)
+        {
+            return DataProvider.GetJobInfoById(jobId);
+        }
     }
 }

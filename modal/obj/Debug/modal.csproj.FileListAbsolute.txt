@@ -2,3 +2,4 @@ F:\技术项目\callcenter\callcenter\modal\bin\Debug\modal.dll
 F:\技术项目\callcenter\callcenter\modal\bin\Debug\modal.pdb
 F:\技术项目\callcenter\callcenter\modal\obj\Debug\modal.dll
 F:\技术项目\callcenter\callcenter\modal\obj\Debug\modal.pdb
+F:\技术项目\callcenter\callcenter\modal\obj\Debug\modal.csprojResolveAssemblyReference.cache
