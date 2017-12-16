@@ -54,8 +54,12 @@ namespace callcenter.dal
                 new SqlParameter("@MobilePhone", ci.MobilePhone),
                 new SqlParameter("@ChannelCustomer", ci.ChannelCustomer),
                 new SqlParameter("@CustomerRemark", ci.CustomerRemark),
+
+
                 new SqlParameter("@Area", ci.Area),
                 new SqlParameter("@Address", ci.Address),
+
+
                 new SqlParameter("@MobileChangeType", ci.MobileChangeType),
                 new SqlParameter("@MobilePhoneOld", ci.MobilePhoneOld),
                 new SqlParameter("@MobilePhoneNew", ci.MobilePhoneNew),
@@ -63,7 +67,6 @@ namespace callcenter.dal
                 new SqlParameter("@NewBankcard", ci.NewBankcard)));
 
         }
-
 
 
 

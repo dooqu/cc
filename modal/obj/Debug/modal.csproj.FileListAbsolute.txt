@@ -1,18 +1,4 @@
-F:\技术项目\callcenter\service\modal\bin\Debug\modal.dll
-F:\技术项目\callcenter\service\modal\bin\Debug\modal.pdb
-F:\技术项目\callcenter\service\modal\obj\Debug\modal.csprojResolveAssemblyReference.cache
-F:\技术项目\callcenter\service\modal\obj\Debug\modal.dll
-F:\技术项目\callcenter\service\modal\obj\Debug\modal.pdb
 F:\技术项目\callcenter\callcenter\modal\bin\Debug\modal.dll
 F:\技术项目\callcenter\callcenter\modal\bin\Debug\modal.pdb
 F:\技术项目\callcenter\callcenter\modal\obj\Debug\modal.dll
 F:\技术项目\callcenter\callcenter\modal\obj\Debug\modal.pdb
-C:\Users\fanyihua\Documents\GitHub\callcenter\modal\bin\Debug\modal.dll
-C:\Users\fanyihua\Documents\GitHub\callcenter\modal\bin\Debug\modal.pdb
-C:\Users\fanyihua\Documents\GitHub\callcenter\modal\obj\Debug\modal.dll
-C:\Users\fanyihua\Documents\GitHub\callcenter\modal\obj\Debug\modal.pdb
-<<<<<<< HEAD
-F:\技术项目\callcenter\callcenter\modal\obj\Debug\modal.csprojResolveAssemblyReference.cache
-=======
-C:\Users\fanyihua\Documents\GitHub\callcenter\modal\obj\Debug\modal.csprojResolveAssemblyReference.cache
->>>>>>> 54d1a86e93b2d0bc7d82a98c4d1682f1941cacd6
