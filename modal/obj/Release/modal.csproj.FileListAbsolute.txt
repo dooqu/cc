@@ -1,0 +1,4 @@
+F:\技术项目\callcenter\callcenter\modal\bin\Release\modal.dll
+F:\技术项目\callcenter\callcenter\modal\bin\Release\modal.pdb
+F:\技术项目\callcenter\callcenter\modal\obj\Release\modal.dll
+F:\技术项目\callcenter\callcenter\modal\obj\Release\modal.pdb
