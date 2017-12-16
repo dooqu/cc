@@ -12,10 +12,13 @@ C:\Users\fanyihua\Documents\GitHub\callcenter\admin\bin\Debug\admin.pdb
 C:\Users\fanyihua\Documents\GitHub\callcenter\admin\obj\Debug\admin.csprojResolveAssemblyReference.cache
 C:\Users\fanyihua\Documents\GitHub\callcenter\admin\obj\Debug\admin.Properties.Resources.resources
 C:\Users\fanyihua\Documents\GitHub\callcenter\admin\obj\Debug\admin.csproj.GenerateResource.Cache
-C:\Users\fanyihua\Documents\GitHub\callcenter\admin\obj\Debug\admin.mainForm.resources
 C:\Users\fanyihua\Documents\GitHub\callcenter\admin\obj\Debug\admin.loginForm.resources
 C:\Users\fanyihua\Documents\GitHub\callcenter\admin\bin\Debug\admin.exe.config
 C:\Users\fanyihua\Documents\GitHub\callcenter\admin\bin\Debug\dal.dll
 C:\Users\fanyihua\Documents\GitHub\callcenter\admin\bin\Debug\modal.dll
 C:\Users\fanyihua\Documents\GitHub\callcenter\admin\bin\Debug\dal.pdb
 C:\Users\fanyihua\Documents\GitHub\callcenter\admin\bin\Debug\modal.pdb
+C:\Users\fanyihua\Documents\GitHub\callcenter\admin\bin\Debug\Newtonsoft.Json.dll
+C:\Users\fanyihua\Documents\GitHub\callcenter\admin\obj\Debug\admin.StartForm.resources
+C:\Users\fanyihua\Documents\GitHub\callcenter\admin\obj\Debug\admin.Clearance.resources
+C:\Users\fanyihua\Documents\GitHub\callcenter\admin\obj\Debug\admin.MobileChange.resources

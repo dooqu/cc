@@ -11,3 +11,16 @@ F:\技术项目\callcenter\callcenter\api\bin\bll.pdb
 F:\技术项目\callcenter\callcenter\api\bin\modal.pdb
 F:\技术项目\callcenter\callcenter\api\bin\dal.pdb
 F:\技术项目\callcenter\callcenter\api\obj\Debug\api.csprojResolveAssemblyReference.cache
+C:\Users\fanyihua\Documents\GitHub\callcenter\api\bin\api.dll.config
+C:\Users\fanyihua\Documents\GitHub\callcenter\api\bin\api.dll
+C:\Users\fanyihua\Documents\GitHub\callcenter\api\bin\api.pdb
+C:\Users\fanyihua\Documents\GitHub\callcenter\api\bin\bll.dll
+C:\Users\fanyihua\Documents\GitHub\callcenter\api\bin\modal.dll
+C:\Users\fanyihua\Documents\GitHub\callcenter\api\bin\Newtonsoft.Json.dll
+C:\Users\fanyihua\Documents\GitHub\callcenter\api\bin\dal.dll
+C:\Users\fanyihua\Documents\GitHub\callcenter\api\bin\bll.pdb
+C:\Users\fanyihua\Documents\GitHub\callcenter\api\bin\modal.pdb
+C:\Users\fanyihua\Documents\GitHub\callcenter\api\bin\dal.pdb
+C:\Users\fanyihua\Documents\GitHub\callcenter\api\obj\Debug\api.csprojResolveAssemblyReference.cache
+C:\Users\fanyihua\Documents\GitHub\callcenter\api\obj\Debug\api.dll
+C:\Users\fanyihua\Documents\GitHub\callcenter\api\obj\Debug\api.pdb
