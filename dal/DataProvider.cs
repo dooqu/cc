@@ -54,102 +54,38 @@ namespace callcenter.dal
                 new SqlParameter("@MobilePhone", ci.MobilePhone),
                 new SqlParameter("@ChannelCustomer", ci.ChannelCustomer),
                 new SqlParameter("@CustomerRemark", ci.CustomerRemark),
-                new SqlParameter("@Status", ci.Status),
-                new SqlParameter("@ErrorMessage", ci.ErrorMessage),
-                new SqlParameter("@Operation", ci.Operation),
-                new SqlParameter("@OperationDateTime", ci.OperationDateTime),
-                new SqlParameter("@CreateDateTime", ci.CreateDateTime),
-                new SqlParameter("@IsDelete", ci.IsDelete),
-
                 new SqlParameter("@Area", ci.Area),
                 new SqlParameter("@Address", ci.Address),
-                new SqlParameter("@ExpressNumber", ci.ExpressNumber),
-                new SqlParameter("@DueBillNumber", ci.DueBillNumber),
-                new SqlParameter("@ClearanceImage", ci.ClearanceImage),
-
                 new SqlParameter("@MobileChangeType", ci.MobileChangeType),
                 new SqlParameter("@MobilePhoneOld", ci.MobilePhoneOld),
                 new SqlParameter("@MobilePhoneNew", ci.MobilePhoneNew),
-
                 new SqlParameter("@OldBankcard", ci.OldBankcard),
-                new SqlParameter("@NewBankcard", ci.NewBankcard),
+                new SqlParameter("@NewBankcard", ci.NewBankcard)));
 
-                new SqlParameter("@Image1", ci.Image1),
-                new SqlParameter("@Image2", ci.Image2),
-                new SqlParameter("@Image3", ci.Image3),
-                new SqlParameter("@Image4", ci.Image4),
-                new SqlParameter("@Image5", ci.Image5)));
-               
         }
 
-        public static int UpdateJobInfo(JobInfo ci)
+
+
+
+        /// <summary>
+        /// 更新图片附件 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="imageType">0 结算电子图片(ClearanceImage) 1 image1,2 image,3 image3,4 image4,5 image5</param>
+        /// <param name="imageName"></param>
+        /// <returns></returns>
+        public static int UpdateJobInfoImage(int JobId,int imageType,string imageName)
         {
-            return Convert.ToInt32(SqlHelper.ExecuteScalar(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "[UpdateJobInfo]",
-                new SqlParameter("@ID", ci.ID),
-                new SqlParameter("@UserId", ci.UserId),
-                new SqlParameter("@JobType", ci.JobType),
-                new SqlParameter("@UserName", ci.UserName),
-                new SqlParameter("@IdentityCard", ci.IdentityCard),
-                new SqlParameter("@MobilePhone", ci.MobilePhone),
-                new SqlParameter("@ChannelCustomer", ci.ChannelCustomer),
-                new SqlParameter("@CustomerRemark", ci.CustomerRemark),
-                new SqlParameter("@Status", ci.Status),
-                new SqlParameter("@ErrorMessage", ci.ErrorMessage),
-                new SqlParameter("@Operation", ci.Operation),
-                new SqlParameter("@OperationDateTime", ci.OperationDateTime),
-                new SqlParameter("@CreateDateTime", ci.CreateDateTime),
-                new SqlParameter("@IsDelete", ci.IsDelete),
-
-                new SqlParameter("@Area", ci.Area),
-                new SqlParameter("@Address", ci.Address),
-                new SqlParameter("@ExpressNumber", ci.ExpressNumber),
-                new SqlParameter("@DueBillNumber", ci.DueBillNumber),
-                new SqlParameter("@ClearanceImage", ci.ClearanceImage),
-
-                new SqlParameter("@MobileChangeType", ci.MobileChangeType),
-                new SqlParameter("@MobilePhoneOld", ci.MobilePhoneOld),
-                new SqlParameter("@MobilePhoneNew", ci.MobilePhoneNew),
-
-                new SqlParameter("@OldBankcard", ci.OldBankcard),
-                new SqlParameter("@NewBankcard", ci.NewBankcard),
-
-                new SqlParameter("@Image1", ci.Image1),
-                new SqlParameter("@Image2", ci.Image2),
-                new SqlParameter("@Image3", ci.Image3),
-                new SqlParameter("@Image4", ci.Image4),
-                new SqlParameter("@Image5", ci.Image5)));
+            return Convert.ToInt32(SqlHelper.ExecuteScalar(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "[UpdateJobInfoImage]",
+                new SqlParameter("@JobId", JobId),
+                new SqlParameter("@imageType", imageType),
+                new SqlParameter("@imageName", imageName)));
         }
 
         public static List<JobInfo> GetJobInfoList(JobInfo ci)
         {
             SqlDataReader reader = SqlHelper.ExecuteReader(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "GetJobInfo",
-                new SqlParameter("@ID", ci.ID),
-                new SqlParameter("@UserId", ci.UserId),
-                new SqlParameter("@JobType", ci.JobType),
-                new SqlParameter("@UserName", ci.UserName),
-                new SqlParameter("@IdentityCard", ci.IdentityCard),
-                new SqlParameter("@MobilePhone", ci.MobilePhone),
-                new SqlParameter("@ChannelCustomer", ci.ChannelCustomer),
-                new SqlParameter("@CustomerRemark", ci.CustomerRemark),
-                new SqlParameter("@Status", ci.Status),
-                new SqlParameter("@ErrorMessage", ci.ErrorMessage),
-                new SqlParameter("@Operation", ci.Operation),
-                new SqlParameter("@OperationDateTime", ci.OperationDateTime),
-                new SqlParameter("@CreateDateTime", ci.CreateDateTime),
-                new SqlParameter("@IsDelete", ci.IsDelete),
-
-                new SqlParameter("@Area", ci.Area),
-                new SqlParameter("@Address", ci.Address),
-                new SqlParameter("@ExpressNumber", ci.ExpressNumber),
-                new SqlParameter("@DueBillNumber", ci.DueBillNumber),
-                new SqlParameter("@ClearanceImage", ci.ClearanceImage),
-
-                new SqlParameter("@MobileChangeType", ci.MobileChangeType),
-                new SqlParameter("@MobilePhoneOld", ci.MobilePhoneOld),
-                new SqlParameter("@MobilePhoneNew", ci.MobilePhoneNew),
-
-                new SqlParameter("@OldBankcard", ci.OldBankcard),
-                new SqlParameter("@NewBankcard", ci.NewBankcard));
+                new SqlParameter("@ID", ci.ID));
 
             List<JobInfo> cInfoList = new List<JobInfo>();
             while (reader.Read())
@@ -170,19 +106,20 @@ namespace callcenter.dal
                 cf.OperationDateTime = Convert.ToDateTime(reader["OperationDateTime"]);
                 cf.CreateDateTime = Convert.ToDateTime(reader["CreateDateTime"]);
                 cf.IsDelete = Convert.ToInt32(reader["IsDelete"]);
-                ci.Area=Convert.ToString(reader["Area"]);
-                ci.Address = Convert.ToString(reader["Address"]);
-                ci.ExpressNumber = Convert.ToString(reader["ExpressNumber"]);
-                ci.DueBillNumber = Convert.ToString(reader["DueBillNumber"]);
-                ci.ClearanceImage = Convert.ToString(reader["ClearanceImage"]);
+
+                ci.Area = reader["Area"] == null ? "" : Convert.ToString(reader["Area"]);
+                ci.Address = reader["Address"] == null ? "" : Convert.ToString(reader["Address"]);
+                ci.ExpressNumber = reader["ExpressNumber"] == null ? "" : Convert.ToString(reader["ExpressNumber"]);
+                ci.DueBillNumber = reader["DueBillNumber"] == null ? "" : Convert.ToString(reader["DueBillNumber"]);
+                ci.ClearanceImage = reader["ClearanceImage"] == null ? "" : Convert.ToString(reader["ClearanceImage"]);
 
                 ci.MobileChangeType = Convert.ToInt32(reader["MobileChangeType"]);
-                ci.MobilePhoneOld = Convert.ToString(reader["MobilePhoneOld"]);
-                ci.MobilePhoneNew = Convert.ToString(reader["MobilePhoneNew"]);
+                ci.MobilePhoneOld = reader["MobilePhoneOld"] == null ? "" : Convert.ToString(reader["MobilePhoneOld"]);
+                ci.MobilePhoneNew = reader["MobilePhoneNew"] == null ? "" : Convert.ToString(reader["MobilePhoneNew"]);
 
-                ci.OldBankcard = Convert.ToString(reader["OldBankcard"]);
-                ci.NewBankcard = Convert.ToString(reader["NewBankcard"]);
-                
+                ci.OldBankcard = reader["OldBankcard"] == null ? "" : Convert.ToString(reader["OldBankcard"]);
+                ci.NewBankcard = reader["NewBankcard"] == null ? "" : Convert.ToString(reader["NewBankcard"]);
+
 
                 cInfoList.Add(cf);
             }
