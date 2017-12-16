@@ -11,3 +11,4 @@ C:\Users\fanyihua\Documents\GitHub\callcenter\modal\bin\Debug\modal.dll
 C:\Users\fanyihua\Documents\GitHub\callcenter\modal\bin\Debug\modal.pdb
 C:\Users\fanyihua\Documents\GitHub\callcenter\modal\obj\Debug\modal.dll
 C:\Users\fanyihua\Documents\GitHub\callcenter\modal\obj\Debug\modal.pdb
+C:\Users\fanyihua\Documents\GitHub\callcenter\modal\obj\Debug\modal.csprojResolveAssemblyReference.cache

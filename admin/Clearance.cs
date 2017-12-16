@@ -18,11 +18,11 @@ namespace admin
         {
             InitializeComponent();
 
-            List<Job_ClearanceInfo> cInfoList = new List<Job_ClearanceInfo>();
-            cInfoList = DataProvider.GetJob_ClearanceById();
+            //List<Job_ClearanceInfo> cInfoList = new List<Job_ClearanceInfo>();
+            //cInfoList = DataProvider.GetJob_ClearanceById();
 
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.DataSource = cInfoList;
+            //dataGridView1.AutoGenerateColumns = false;
+            //dataGridView1.DataSource = cInfoList;
 
             //dataGridView1.DataSource = HttpClearance.GetClearanceInfoList();
 
