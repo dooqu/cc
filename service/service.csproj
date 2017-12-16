@@ -52,10 +52,18 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AreaMap.txt" />
+    <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="baseHandler\WechatServiceHandler.cs" />
+    <Compile Include="GetAreas.ashx.cs">
+      <DependentUpon>GetAreas.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionLogin.ashx.cs">
       <DependentUpon>SessionLogin.ashx</DependentUpon>
@@ -64,6 +72,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SessionLogin.ashx" />
+    <Content Include="GetAreas.ashx" />
+    <None Include="Properties\PublishProfiles\service.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -36,6 +36,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles.cs" />
     <Compile Include="SessionManager.cs" />

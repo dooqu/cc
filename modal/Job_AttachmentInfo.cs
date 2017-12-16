@@ -7,7 +7,7 @@ namespace callcenter.modal
     /// <summary>
     /// 附件 实体类
     /// </summary>
-    public class Job_AttachmentInfo
+    public class Job_AttachmentInfo : JobInfo
     {
         public int ID { get; set; }
         //文件名称

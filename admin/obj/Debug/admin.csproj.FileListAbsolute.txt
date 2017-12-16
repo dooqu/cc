@@ -1,6 +1,5 @@
 F:\技术项目\callcenter\callcenter\admin\bin\Debug\admin.exe
 F:\技术项目\callcenter\callcenter\admin\bin\Debug\admin.pdb
-F:\技术项目\callcenter\callcenter\admin\obj\Debug\admin.Form1.resources
 F:\技术项目\callcenter\callcenter\admin\obj\Debug\admin.Properties.Resources.resources
 F:\技术项目\callcenter\callcenter\admin\obj\Debug\admin.csproj.GenerateResource.Cache
 F:\技术项目\callcenter\callcenter\admin\obj\Debug\admin.exe
@@ -19,3 +18,11 @@ C:\Users\fanyihua\Documents\GitHub\callcenter\admin\bin\Debug\dal.dll
 C:\Users\fanyihua\Documents\GitHub\callcenter\admin\bin\Debug\modal.dll
 C:\Users\fanyihua\Documents\GitHub\callcenter\admin\bin\Debug\dal.pdb
 C:\Users\fanyihua\Documents\GitHub\callcenter\admin\bin\Debug\modal.pdb
+F:\技术项目\callcenter\callcenter\admin\obj\Debug\admin.csprojResolveAssemblyReference.cache
+F:\技术项目\callcenter\callcenter\admin\obj\Debug\admin.loginForm.resources
+F:\技术项目\callcenter\callcenter\admin\obj\Debug\admin.mainForm.resources
+F:\技术项目\callcenter\callcenter\admin\bin\Debug\admin.exe.config
+F:\技术项目\callcenter\callcenter\admin\bin\Debug\dal.dll
+F:\技术项目\callcenter\callcenter\admin\bin\Debug\modal.dll
+F:\技术项目\callcenter\callcenter\admin\bin\Debug\dal.pdb
+F:\技术项目\callcenter\callcenter\admin\bin\Debug\modal.pdb

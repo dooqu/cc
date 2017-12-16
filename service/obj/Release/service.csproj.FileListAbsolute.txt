@@ -1,0 +1,12 @@
+F:\技术项目\callcenter\callcenter\service\bin\service.dll.config
+F:\技术项目\callcenter\callcenter\service\bin\service.dll
+F:\技术项目\callcenter\callcenter\service\bin\service.pdb
+F:\技术项目\callcenter\callcenter\service\bin\bll.dll
+F:\技术项目\callcenter\callcenter\service\bin\modal.dll
+F:\技术项目\callcenter\callcenter\service\bin\dal.dll
+F:\技术项目\callcenter\callcenter\service\bin\bll.pdb
+F:\技术项目\callcenter\callcenter\service\bin\modal.pdb
+F:\技术项目\callcenter\callcenter\service\bin\dal.pdb
+F:\技术项目\callcenter\callcenter\service\obj\Release\service.csprojResolveAssemblyReference.cache
+F:\技术项目\callcenter\callcenter\service\obj\Release\service.dll
+F:\技术项目\callcenter\callcenter\service\obj\Release\service.pdb

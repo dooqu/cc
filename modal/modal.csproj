@@ -35,6 +35,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AreaInfo.cs" />
     <Compile Include="Job_AddMessageInfo.cs" />
     <Compile Include="Job_AttachmentInfo.cs" />
     <Compile Include="Job_ClearanceInfo.cs" />
