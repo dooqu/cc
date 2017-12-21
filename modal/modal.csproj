@@ -35,6 +35,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdInfo.cs" />
     <Compile Include="AreaInfo.cs" />
     <Compile Include="JobInfo.cs" />
     <Compile Include="OperatorInfo.cs" />

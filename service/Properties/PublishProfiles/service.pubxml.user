@@ -13,19 +13,22 @@
       <publishTime>12/12/2017 14:08:36</publishTime>
     </File>
     <File Include="bin/bll.dll">
-      <publishTime>12/17/2017 00:58:53</publishTime>
+      <publishTime>12/21/2017 23:06:40</publishTime>
     </File>
     <File Include="bin/dal.dll">
-      <publishTime>12/17/2017 00:58:52</publishTime>
+      <publishTime>12/21/2017 23:06:40</publishTime>
     </File>
     <File Include="bin/modal.dll">
-      <publishTime>12/16/2017 20:11:06</publishTime>
+      <publishTime>12/21/2017 23:06:40</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>03/14/2016 21:30:02</publishTime>
     </File>
     <File Include="bin/service.dll">
-      <publishTime>12/17/2017 00:58:54</publishTime>
+      <publishTime>12/21/2017 23:06:41</publishTime>
+    </File>
+    <File Include="GetAds.ashx">
+      <publishTime>12/21/2017 22:58:27</publishTime>
     </File>
     <File Include="GetAreas.ashx">
       <publishTime>12/12/2017 10:55:30</publishTime>

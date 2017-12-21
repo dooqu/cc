@@ -58,6 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="baseHandler\WechatServiceHandler.cs" />
+    <Compile Include="GetAds.ashx.cs">
+      <DependentUpon>GetAds.ashx</DependentUpon>
+    </Compile>
     <Compile Include="GetAreas.ashx.cs">
       <DependentUpon>GetAreas.ashx</DependentUpon>
     </Compile>
@@ -88,6 +91,7 @@
     <Content Include="NewJob.ashx" />
     <Content Include="GetMyJobs.ashx" />
     <Content Include="GetJobInfoById.ashx" />
+    <Content Include="GetAds.ashx" />
     <None Include="Properties\PublishProfiles\service.pubxml" />
     <Content Include="UpdateJob.ashx" />
     <None Include="Web.Debug.config">
