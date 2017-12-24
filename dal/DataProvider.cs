@@ -4,8 +4,9 @@ using System.Text;
 using System.Configuration;
 using System.Data.SqlClient;
 using Microsoft.ApplicationBlocks.Data;
+using System.Data;
 using callcenter.modal;
-
+using callcenter.modal.Core;
 
 
 namespace callcenter.dal
@@ -85,6 +86,25 @@ namespace callcenter.dal
                 new SqlParameter("@imageName", imageName)));
         }
 
+        /// <summary>
+        /// 处理任务单状态
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="status">处理状态</param>
+        /// <param name="errMsg">错误信息</param>
+        /// <param name="imageName">贷款结清申请电子版</param>
+        public static int UpdateJobStatus(int JobId, int status, string errMsg, string imageName, int UserId, string ExpressNumber, string DueBillNumber)
+        {
+            return Convert.ToInt32(SqlHelper.ExecuteScalar(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "UpdateJobStatus",
+                new SqlParameter("@JobId", JobId),
+                new SqlParameter("@UserId", UserId),
+                new SqlParameter("@Status", status),
+                new SqlParameter("@errMsg", errMsg),
+                new SqlParameter("@ExpressNumber", ExpressNumber),
+                new SqlParameter("@DueBillNumber", DueBillNumber),
+                new SqlParameter("@imageName", imageName)));
+        }
+
         public static void ReadJobInfo(JobInfo job, SqlDataReader reader)
         {
             job.ID = Convert.ToInt32(reader["ID"]);
@@ -158,49 +178,51 @@ namespace callcenter.dal
 
             return null;
         }
-
-        public static List<JobInfo> GetJobInfoList(JobInfo ci)
+        /// <summary>
+        /// 获取工单列列根据工单类型
+        /// </summary>
+        /// <param name="jobType"></param>
+        /// <returns></returns>
+        public static List<JobInfo> GetJobsByType(int jobType)
         {
-            SqlDataReader reader = SqlHelper.ExecuteReader(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "GetJobInfo",
-                new SqlParameter("@ID", ci.ID));
+            SqlDataReader reader = SqlHelper.ExecuteReader(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "GetJobsByType",
+                new SqlParameter("@jobType", jobType));
 
             List<JobInfo> cInfoList = new List<JobInfo>();
             while (reader.Read())
             {
-                JobInfo cf = new JobInfo();
-                cf.ID = Convert.ToInt32(reader["ID"]);
-                cf.UserId = Convert.ToInt32(reader["UserId"]);
-                cf.JobType = Convert.ToInt32(reader["JobType"]);
-                cf.UserName = Convert.ToString(reader["UserName"]);
-                cf.IdentityCard = Convert.ToString(reader["IdentityCard"]);
-                cf.MobilePhone = Convert.ToString(reader["MobilePhone"]);
-                cf.ChannelCustomer = Convert.ToString(reader["ChannelCustomer"]);
-                cf.CustomerRemark = Convert.ToString(reader["CustomerRemark"]);
-                cf.Status = Convert.ToInt32(reader["Status"]);
-                cf.ErrorMessage = Convert.ToString(reader["ErrorMessage"]);
-                cf.Status = Convert.ToInt32(reader["Status"]);
-                cf.Operation = Convert.ToInt32(reader["Operation"]);
-                cf.OperationDateTime = Convert.ToDateTime(reader["OperationDateTime"]);
-                cf.CreateDateTime = Convert.ToDateTime(reader["CreateDateTime"]);
-                cf.IsDelete = Convert.ToInt32(reader["IsDelete"]);
-
-                ci.Area = reader["Area"] == null ? "" : Convert.ToString(reader["Area"]);
-                ci.Address = reader["Address"] == null ? "" : Convert.ToString(reader["Address"]);
-                ci.ExpressNumber = reader["ExpressNumber"] == null ? "" : Convert.ToString(reader["ExpressNumber"]);
-                ci.DueBillNumber = reader["DueBillNumber"] == null ? "" : Convert.ToString(reader["DueBillNumber"]);
-                ci.ClearanceImage = reader["ClearanceImage"] == null ? "" : Convert.ToString(reader["ClearanceImage"]);
-
-                ci.MobileChangeType = Convert.ToInt32(reader["MobileChangeType"]);
-                ci.MobilePhoneOld = reader["MobilePhoneOld"] == null ? "" : Convert.ToString(reader["MobilePhoneOld"]);
-                ci.MobilePhoneNew = reader["MobilePhoneNew"] == null ? "" : Convert.ToString(reader["MobilePhoneNew"]);
-
-                ci.OldBankcard = reader["OldBankcard"] == null ? "" : Convert.ToString(reader["OldBankcard"]);
-                ci.NewBankcard = reader["NewBankcard"] == null ? "" : Convert.ToString(reader["NewBankcard"]);
-
-
-                cInfoList.Add(cf);
+                JobInfo job = new JobInfo();
+                ReadJobInfo(job, reader);
+                cInfoList.Add(job);
             }
             return cInfoList;
+        }
+
+        /// <summary>
+        /// 功能：查询分页数据
+        /// 日期：2017-12-19
+        /// </summary>
+        /// <param name="sqlStr">查询SQL</param>
+        /// <param name="pi">页码</param>
+        /// <param name="pageSize">每页显示条数</param>
+        /// <param name="parList">参数类型</param>
+        /// <returns></returns>
+        public static PagedTable GetDataByPage(string strWhere, int pi, int pageSize)
+        {
+            int RowTotal=0;
+
+            SqlParameter[] sp=new SqlParameter[4];
+            sp[0] = new SqlParameter("@PageSize", pageSize);
+            sp[1] = new SqlParameter("@PageIndex", pi);
+            SqlParameter spara = new SqlParameter("@TotalCount", RowTotal);
+            spara.Direction = ParameterDirection.Output;
+            sp[2] = spara;
+            sp[3] = new SqlParameter("@strWhere", strWhere);
+            
+            DataSet ds = SqlHelper.ExecuteDataset(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "GetJobsByType", sp);
+            RowTotal = Convert.ToInt32(ds.Tables[1].Rows[0][0]);
+            PagedTable pt = new PagedTable(ds.Tables[0], pi, pageSize, RowTotal);
+            return pt;
         }
 
         #endregion

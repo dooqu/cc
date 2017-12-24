@@ -1,5 +1,7 @@
-﻿using System;
+﻿using callcenter.modal.Core;
+using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace callcenter.modal
@@ -80,5 +82,25 @@ namespace callcenter.modal
         //图片5
         public string Image5 { get; set; }
         #endregion
+    }
+
+    /// <summary>
+    /// 处理结果状态
+    /// </summary>
+    [Serializable]
+    [DataContract]
+    public enum EnumResultState
+    {
+        /// <summary>
+        /// 成功
+        /// </summary>
+        [EnumMember]
+        Success = 1,
+
+        /// <summary>
+        /// 失败
+        /// </summary>
+        [EnumMember]
+        Failing = 0
     }
 }

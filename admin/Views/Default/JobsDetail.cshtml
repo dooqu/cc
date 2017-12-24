@@ -1,0 +1,539 @@
+﻿@model callcenter.modal.JobInfo
+@{
+    Layout = null;
+    ViewBag.Title = "受理中";
+}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="@Url.Content("~/ContentV2/CSS/Main_new.css")" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="@Url.Content("~/ContentV2/JS/JQuery-1.9.1.min.js")"></script>
+</head>
+<body class="body_content">
+        <div class="div_oms_tab">
+            <input name="StatusNew" id="StatusNew" type="hidden" value="@Model.Status" />
+            @{if (Convert.ToInt16(ViewData["Status"]) == 0)
+            {
+                <div class='div_oms_tab_item_left_a' id="tab_01" onclick="javascript:location.href=' @Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = 0 })';">受理中</div>
+                <div class='div_oms_tab_item_right_a'></div>
+            }
+            else
+            {
+                <div class='div_oms_tab_item_left' id="tab_01" onclick="javascript:location.href=' @Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = 0 })';">受理中</div>
+                <div class='div_oms_tab_item_right'></div>
+            }}
+
+            @{if (Convert.ToInt16(ViewData["Status"]) == 1)
+            {
+                <div class='div_oms_tab_item_left_a' id="tab_02" onclick="javascript:location.href=' @Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = 1 })';">处理完毕</div>
+                <div class='div_oms_tab_item_right_a'></div>
+            }
+            else
+            {
+                <div class='div_oms_tab_item_left' id="tab_02" onclick="javascript:location.href=' @Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = 1 })';">处理完毕</div>
+                <div class='div_oms_tab_item_right'></div>
+            }}
+
+            @{if (Convert.ToInt16(ViewData["Status"]) == 3)
+            {
+                <div class="div_oms_tab_item_left_a" id="tab_03" onclick="javascript:location.href='@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = 3 })';">错误</div>
+                <div class="div_oms_tab_item_right_a"></div>
+            }
+            else
+            {
+                <div class="div_oms_tab_item_left" id="tab_03" onclick="javascript:location.href='@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = 3 })';">错误</div>
+                <div class="div_oms_tab_item_right"></div>
+            }}
+
+            @{if (Convert.ToInt16(ViewData["Status"]) == -1)
+            {
+                <div class="div_oms_tab_item_left_a" id="tab_04" onclick="javascript:location.href='@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = -1 })';">全部</div>
+                <div class="div_oms_tab_item_right_a"></div>
+            }
+            else
+            {
+                <div class="div_oms_tab_item_left" id="tab_04" onclick="javascript:location.href='@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = -1 })';">全部</div>
+                <div class="div_oms_tab_item_right"></div>
+            }}
+            <div class="div_oms_list_operator">
+
+            </div>
+        </div>
+    <form id="WaitAcceptEditForm" method="post" enctype="multipart/form-data">
+        @Html.HiddenFor(r => r.ID)
+        @Html.HiddenFor(r => r.JobType)
+        <div class="line_top"></div>
+        <div class="line_center">
+            <div class="div_detail_title">填写提交信息</div>
+            <table cellpadding="0" cellspacing="0" class="table_detail">
+                <tr>
+                    <td class="td_detail_01">姓名</td>
+                    <td class="td_detail_02">
+                        @Model.UserName
+                    </td>
+                    <td class="td_detail_01">身份证号</td>
+                    <td class="td_detail_02">
+                        @Model.IdentityCard
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_detail_01">手机号</td>
+                    <td class="td_detail_02">
+                        @Model.MobilePhone
+                    </td>
+                    <td class="td_detail_01">渠道</td>
+                    <td class="td_detail_02">
+                        @Model.ChannelCustomer
+                    </td>
+                </tr>
+                @if (Convert.ToInt16(@ViewData["JobType"]) == 0)
+                {
+                    <tr>
+                        <td class="td_detail_01">地区</td>
+                        <td class="td_detail_02">
+                            @Model.Area
+                        </td>
+                        <td class="td_detail_01">详细地址</td>
+                        <td class="td_detail_02">
+                            @Model.Address
+                        </td>
+                    </tr>
+                }
+
+                @if (Convert.ToInt16(@ViewData["JobType"]) == 0 || Convert.ToInt16(@ViewData["JobType"]) == 3)
+                {
+                    if (!string.IsNullOrWhiteSpace(@Model.Image1))
+                    {
+                        <tr>
+                            <td class="td_detail_01">图片附件1</td>
+                            <td class="td_detail_02" colspan="3">
+                                <div class="imgemp">
+                                    <div class="democss">
+                                        <img id="img1" src='http://47.104.92.215/pics/@Model.Image1' class="img_emp_photo" width="100px" height="100px" />
+                                    </div>
+                                    <div id="eImages1" class="eImages"></div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                    if (!string.IsNullOrWhiteSpace(@Model.Image2))
+                    {
+                        <tr>
+                            <td class="td_detail_01">图片附件2</td>
+                            <td class="td_detail_02" colspan="3">
+                                <div class="imgemp">
+                                    <div class="democss">
+                                        <img id="img2" src='http://47.104.92.215/pics/@Model.Image2' class="img_emp_photo" width="100px" height="100px" />
+                                    </div>
+                                    <div id="eImages2" class="eImages"></div>
+                                </div></td>
+                        </tr>
+                    }
+                    if (!string.IsNullOrWhiteSpace(@Model.Image3))
+                    {
+                        <tr>
+                            <td class="td_detail_01">图片附件3</td>
+                            <td class="td_detail_02" colspan="3">
+                                <div class="imgemp">
+                                    <div class="democss">
+                                        <img id="img3" src='http://47.104.92.215/pics/@Model.Image3' class="img_emp_photo" width="100px" height="100px" />
+                                    </div>
+                                    <div id="eImages3" class="eImages"></div>
+                                </div></td>
+                        </tr>
+                    }
+                }
+
+                @if (Convert.ToInt16(@ViewData["JobType"]) == 1)
+                {
+                    <tr>
+                        <td class="td_detail_01">更换业务类型</td>
+                        <td class="td_detail_02" colspan="3">
+                            @if (@Model.MobileChangeType == 0)
+                            {
+                                <div>有氧金融注册手机号</div>
+                            }
+                            else
+                            {
+                                <div>银行卡预留手机号</div>
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_detail_01">旧手机号</td>
+                        <td class="td_detail_02">
+                            @Model.MobilePhoneOld
+                        </td>
+                        <td class="td_detail_01">新手机号</td>
+                        <td class="td_detail_02">
+                            @Model.MobilePhoneNew
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_detail_01">身份证正面照片</td>
+                        <td class="td_detail_02" colspan="3">
+                            <div class="imgemp">
+                                <div class="democss">
+                                    <img id="img1" src='http://47.104.92.215/pics/@Model.Image1' class="img_emp_photo" width="100px" height="100px" />
+                                </div>
+                                <div id="eImages1" class="eImages"></div>
+                            </div></td>
+                    </tr>
+                    <tr>
+                        <td class="td_detail_01">身份证背面照片</td>
+                        <td class="td_detail_02" colspan="3">
+                            <div class="imgemp">
+                                <div class="democss">
+                                    <img id="img2" src='http://47.104.92.215/pics/@Model.Image2' class="img_emp_photo" width="100px" height="100px" />
+                                </div>
+                                <div id="eImages2" class="eImages"></div>
+                            </div></td>
+                    </tr>
+                    <tr>
+                        <td class="td_detail_01">个人手持身份证照片</td>
+                        <td class="td_detail_02" colspan="3">
+                            <div class="imgemp">
+                                <div class="democss">
+                                    <img id="img3" src='http://47.104.92.215/pics/@Model.Image3' class="img_emp_photo" width="100px" height="100px" />
+                                </div>
+                                <div id="eImages3" class="eImages"></div>
+                            </div></td>
+                    </tr>
+                    <tr>
+                        <td class="td_detail_01">个人手持书写新手机号的A4纸张照片</td>
+                        <td class="td_detail_02" colspan="3">
+                            <div class="imgemp">
+                                <div class="democss">
+                                    <img id="img4" src='http://47.104.92.215/pics/@Model.Image4' class="img_emp_photo" width="100px" height="100px" />
+                                </div>
+                                <div id="eImages4" class="eImages"></div>
+                            </div></td>
+                    </tr>
+                }
+
+                @if (Convert.ToInt16(@ViewData["JobType"]) == 2)
+                {
+                    <tr>
+                        <td class="td_detail_01">旧银行卡号</td>
+                        <td class="td_detail_02">
+                            @Model.OldBankcard
+                        </td>
+                        <td class="td_detail_01">新银行卡号</td>
+                        <td class="td_detail_02">
+                            @Model.NewBankcard
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_detail_01">身份证正面照片</td>
+                        <td class="td_detail_02" colspan="3">
+                            <div class="imgemp">
+                                <div class="democss">
+                                    <img id="img1" src='http://47.104.92.215/pics/@Model.Image1' class="img_emp_photo" width="100px" height="100px" />
+                                </div>
+                                <div id="eImages1" class="eImages"></div>
+                            </div></td>
+                    </tr>
+                    <tr>
+                        <td class="td_detail_01">身份证背面照片</td>
+                        <td class="td_detail_02" colspan="3">
+                            <div class="imgemp">
+                                <div class="democss">
+                                    <img id="img2" src='http://47.104.92.215/pics/@Model.Image2' class="img_emp_photo" width="100px" height="100px" />
+                                </div>
+                                <div id="eImages2" class="eImages"></div>
+                            </div></td>
+                    </tr>
+                    <tr>
+                        <td class="td_detail_01">个人手持身份证照片</td>
+                        <td class="td_detail_02" colspan="3">
+                            <div class="imgemp">
+                                <div class="democss">
+                                    <img id="img3" src='http://47.104.92.215/pics/@Model.Image3' class="img_emp_photo" width="100px" height="100px" />
+                                </div>
+                                <div id="eImages3" class="eImages"></div>
+                            </div></td>
+                    </tr>
+                    <tr>
+                        <td class="td_detail_01">个人手持新银行卡照片</td>
+                        <td class="td_detail_02" colspan="3">
+                            <div class="imgemp">
+                                <div class="democss">
+                                    <img id="img4" src='http://47.104.92.215/pics/@Model.Image4' class="img_emp_photo" width="100px" height="100px" />
+                                </div>
+                                <div id="eImages4" class="eImages"></div>
+                            </div></td>
+                    </tr>
+                    <tr>
+                        <td class="td_detail_01">银行流水或银行相关证明照片</td>
+                        <td class="td_detail_02" colspan="3">
+                            <div class="imgemp">
+                                <div class="democss">
+                                    <img id="img5" src='http://47.104.92.215/pics/@Model.Image5' class="img_emp_photo" width="100px" height="100px" />
+                                </div>
+                                <div id="eImages5" class="eImages"></div>
+                            </div></td>
+                    </tr>
+                }
+                <tr>
+                    <td class="td_detail_01">备注</td>
+                    <td class="td_detail_02" colspan="3">
+                        @Html.TextAreaFor(x => x.CustomerRemark, new { @class = "txt_area", disabled = "disabled" })
+                    </td>
+                </tr>
+            </table>
+           
+
+            @*@if (Convert.ToInt16(@ViewData["Status"]) == 0)
+            {*@
+                <div class="div_detail_title">处理操作</div>
+                <table cellpadding="0" cellspacing="0" class="table_detail">
+                    @if (Model.Status == 0)
+                    {
+                        <tr>
+                            <td class="td_detail_01">状态</td>
+                            <td class="td_detail_02" colspan="3">
+                                @Html.RadioButtonFor(m => m.Status, 1)处理完成
+                                @Html.RadioButtonFor(m => m.Status, 3)错误
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td class="td_detail_01">状态</td>
+                            <td class="td_detail_02" colspan="3">
+                                @if (Model.Status == 1)
+                                {<div>处理完成</div>}
+                                @if (Model.Status == 3)
+                                {<div>错误</div>}
+                            </td>
+                        </tr>
+                    }
+
+                    @if (Convert.ToInt16(@ViewData["JobType"]) == 0)
+                    {
+                        if (Model.Status == 0)
+                        {
+                            <tr class="err">
+                                <td class="td_detail_01">快递单号</td>
+                                <td class="td_detail_02">
+                                    @Html.EditorFor(m => m.ExpressNumber, new { @class = "txt_area" })
+                                </td>
+                                <td class="td_detail_01">借据号</td>
+                                <td class="td_detail_02">
+                                    @Html.EditorFor(m => m.DueBillNumber, new { @class = "txt_area" })
+                                </td>
+                            </tr>
+                            <tr class="err">
+                                <td class="td_detail_01">贷款结清单电子版</td>
+                                <td class="td_detail_02" colspan="3">
+                                    <input type="file" id="file" name="file" accept="gif|jpg|jpeg|png|bmp|pic" maxlength="1" />
+                                </td>
+                            </tr>
+                        }
+                        
+                         if (Model.Status == 1)
+                        {
+                            <tr>
+                                <td class="td_detail_01">快递单号</td>
+                                <td class="td_detail_02">
+                                    @Model.ExpressNumber
+                                </td>
+                                <td class="td_detail_01">借据号</td>
+                                <td class="td_detail_02">
+                                    @Model.DueBillNumber
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td_detail_01">贷款结清单电子版</td>
+                                <td class="td_detail_02" colspan="3">
+                                    <div class="imgemp">
+                                        <div class="democss">
+                                            <img id="img6" src='~/File/@Model.Image4' class="img_emp_photo" width="100px" height="100px" />
+                                        </div>
+                                        <div id="eImages6" class="eImages"></div>
+                                    </div></td>
+                            </tr>
+                        }
+                    }
+                    <tr id="joberr" style="display: none;">
+                        <td class="td_detail_01">错误信息</td>
+                        <td class="td_detail_02" colspan="3">
+                            @Html.TextAreaFor(x => x.ErrorMessage, new { @class = "txt_area" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            @*}*@
+            <div class="div_detail_bottom">
+                @{
+                    if (Model.Status == 0)
+                    {
+                        <input type="button" class="btn_detail_01" id="btnSave" value="保存" />
+                    }
+                }
+                <input type="button" class="btn_detail_back" onclick="javascript: window.location.href ='@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = ViewData["Status"] })'" />
+            </div>
+        </div>
+        <div class="line_bottom"></div>
+    </form>
+
+</body>
+</html>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        if ($('input[type=radio][name=Status]').val() == 3 || $("#StatusNew").val() == 3) {
+            $("#joberr").show();
+        }
+
+
+        $('input[type=radio][name=Status]').change(function () {
+            if (this.value == 3) {
+                $("#joberr").show();
+                $(".err").each(function () { $(this).hide(); });
+            }
+            else {
+                $("#joberr").hide();
+                $(".err").each(function () { $(this).show(); });
+            }
+        });
+        function getNameFromPath(strFilepath) {
+            var objRE = new RegExp(/([^\/\\]+)$/);
+            var strName = objRE.exec(strFilepath);
+
+            if (strName == null) {
+                return null;
+            }
+            else {
+                return strName[0];
+            }
+        }
+        //验证逻辑
+        function check() {
+            var reg = /^[0-9.]{1,20}$/;
+            if ($('input[type=radio][name=Status]:checked').val() != 1 && $('input[type=radio][name=Status]:checked').val() != 3) {
+                alert("请选择处理状态！");
+                return false;
+            }
+            var JobType = $('#JobType').val();
+            var Status = $("#Status").val();
+            if (JobType == 0 && Status == 1) {
+                if ($("#ExpressNumber").val() == '') {
+                    alert("必须填写快递单号！");
+                    return false;
+                }
+
+                if ($("#DueBillNumber").val() == '') {
+                    alert("必须填写借据号！");
+                    return false;
+                }
+                var file = getNameFromPath($("#file").val());
+                if (file == null) {
+                    alert("必须选择贷款结清单电子版！");
+                    return false;
+                }
+            }
+
+            var ErrorMessage = $("#ErrorMessage").val();
+            if ($('input[type=radio][name=Status]:checked').val() == 3 && ErrorMessage == '') {
+                alert("必须填写错误信息！");
+                return false;
+            }
+            return true;
+        };
+
+        $("#btnSave").click(function () {
+            if (check()) {
+                var Id = $("#ID").val();
+                var status = $('input[type=radio][name=Status]:checked').val();
+                var JobType = $('#JobType').val();
+                var ErrorMessage = "";
+                var ExpressNumber = "";
+                var DueBillNumber = "";
+                if (status == 3) {
+                    ErrorMessage = escape($("#ErrorMessage").val());
+                    $("#ExpressNumber").val("");
+                    $("#DueBillNumber").val("");
+                }
+
+                if (JobType == 0 && status != 3) {
+                    ExpressNumber = escape($("#ExpressNumber").val());
+                    DueBillNumber = escape($("#DueBillNumber").val());
+                }
+
+                var detailsUrl = '@Url.Action("JobEditSave")';
+                if (status == 3) {
+                    var postUrl = detailsUrl + "?ID=" + Id + "&Status=" + status + "&errMsg=" + ErrorMessage;
+                    $.post(postUrl, function (result) {
+                        alert(result.Message);
+                        if (result.Code == 200) {
+                            window.location.href = '@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = 0 })';
+                        }
+                    }, 'json');
+                }
+                else {
+                    var uploadFormData = new FormData($('#WaitAcceptEditForm')[0]);//序列化表单，$("form").serialize()只能序列化数据，不能序列化文件
+                    $.ajax({
+                        type: 'POST',
+                        data: uploadFormData,
+                        url: detailsUrl,
+                        processData: false,
+                        contentType: false,
+                        async: false,
+                        success: function (result) {
+                            alert(result.Message);
+                            if (result.Code == 200) {
+                                window.location.href = '@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = 0 })';
+                            }
+                        }
+                    });
+                }
+            }
+        });
+
+        $(".imgemp").each(function () {
+
+            //alert($(this).find(".img_emp_photo").attr("src"))
+            var eImg = $(this).find(".eImages");
+            $(this).find(".img_emp_photo").mousemove(function (e) {
+                eImg.css("display", "block");
+                eImg.html('<img src="' + this.src + '" />');
+                eImg.css("top", $(document.body).scrollTop() + e.clientY + 10 + "px");
+                eImg.css("left", $(document.body).scrollLeft() + e.clientX + 10 + "px");
+            });
+
+            $(this).find(".img_emp_photo").mouseout(function (e) {
+                eImg.html("");
+                eImg.css("display", "none");
+            });
+
+            $(this).click(function () {
+                window.open($(this).find(".img_emp_photo").attr("src"));
+            });
+        })
+
+        //for (i = 0; i < 5; i++) {
+        //    $("#img" + i).mousemove(function (e) {
+        //        $("#eImages" + i).css("display", "block");
+        //        $("#eImages" + i).html('<img src="' + this.src + '" />');
+        //        $("#eImages" + i).css("top", $(document.body).scrollTop() + e.clientY + 10 + "px");
+        //        $("#eImages" + i).css("left", $(document.body).scrollLeft() + e.clientX + 10 + "px");
+        //    });
+
+        //    $("#img" + i).mouseout(function (e) {
+        //        $("#eImages" + i).html("");
+        //        $("#eImages" + i).css("display", "none");
+        //    });
+
+        //    $("#img" + i).click(function () {
+        //        window.open(this.src);
+        //    });
+        //}
+    });
+</script>

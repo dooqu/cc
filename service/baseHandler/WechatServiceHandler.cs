@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Web;
 using callcenter.modal;
-using Newtonsoft;
 using Newtonsoft.Json;
 
 namespace callcenter.service.baseHandler

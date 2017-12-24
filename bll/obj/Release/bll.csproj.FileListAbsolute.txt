@@ -1,9 +1,0 @@
-F:\技术项目\callcenter\callcenter\bll\bin\Release\bll.dll
-F:\技术项目\callcenter\callcenter\bll\bin\Release\bll.pdb
-F:\技术项目\callcenter\callcenter\bll\bin\Release\dal.dll
-F:\技术项目\callcenter\callcenter\bll\bin\Release\modal.dll
-F:\技术项目\callcenter\callcenter\bll\bin\Release\dal.pdb
-F:\技术项目\callcenter\callcenter\bll\bin\Release\modal.pdb
-F:\技术项目\callcenter\callcenter\bll\obj\Release\bll.csprojResolveAssemblyReference.cache
-F:\技术项目\callcenter\callcenter\bll\obj\Release\bll.dll
-F:\技术项目\callcenter\callcenter\bll\obj\Release\bll.pdb

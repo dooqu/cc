@@ -1,0 +1,48 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>工单管理系统</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="none" name="Robots" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!-- 样式 -->
+    <link href="@Url.Content("~/ContentV2/CSS/Main_new.css")" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="@Url.Content("~/ContentV2/JS/JQuery-1.9.1.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/ContentV2/JS/fan.Common.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/ContentV2/JS/fan.Dialog.js")"></script>
+</head>
+<body class="body_oms_new">
+   @RenderBody()
+</body>
+</html>
+<script type="text/javascript">
+
+    /*
+    * 说明：1、本页面的效果已通过IE8、IE9、IE10、FireFox、Safari 等浏览器的测试，如果套用效果与效果图有任何的差别，请认真核查；
+    *       2、页面底部的脚本代码是必须存在的并且不能做任何的修改；
+    *       3、左边菜单上的属性 name="menu" 是必须项
+    *       4、左边菜单上的样式事件已写完整 光标样式 “样式” + “_hover”,选中样式 “样式” + "_a"
+    */
+
+    $(document).ready(function () {
+        $(".div_oms_main,.div_oms_main_left").height($(window).height()-5);
+        $(".div_oms_main_exit").hoverEvent();
+        $(".frm_Content").height($(window).height() - $(".div_oms_content_site").height() - 3);
+        $(".div_model_exit").click(function () {
+            window.location.href = "/Verification/Index";
+        });
+    });
+    
+
+    function ShowContent(url,isPoped) {
+        if (url != '') {
+            if (isPoped == 'True' || isPoped == 'true') {
+                window.location.href = "@Url.Content("~/")" + url;
+            }
+            else {
+                $(".frm_Content").attr("src", url);
+            }
+        }
+    }
+    
+</script>

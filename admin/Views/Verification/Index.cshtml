@@ -1,0 +1,186 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>工单管理系统</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="none" name="Robots" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!-- 样式 -->
+    <link href="@Url.Content("~/ContentV2/CSS/Main_new.css?dd=" + DateTime.Now.ToLongTimeString())" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/ContentV2/CSS/JQuery-UI.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/ContentV2/CSS/JQGrid.css")" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="@Url.Content("~/ContentV2/JS/JQuery-1.9.1.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/ContentV2/JS/fan.Common.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/ContentV2/JS/fan.Dialog.js")"></script>
+</head>
+<body>
+    @using (Html.BeginForm("index", "Verification", FormMethod.Post))
+    {
+        <div class="div_login_01">
+            <div class="div_login_02">
+                <div class="div_login_04">
+                    <div class="div_login_05">
+                        <input type="text" value="请输入用户名" id="txt_login_name" class="txt_login" maxlength="50" onkeydown="isEntry(event)" />
+                    </div>
+                    <div class="div_login_06">
+                        <input type="text" value="请输入登录密码" class="txt_login_pwd" id="txt_Pwd_01" maxlength="50" onkeypress="detectCapsLock();" />
+                        <input type="password" class="txt_login_pwd" id="txt_Pwd_02" style="display: none;" maxlength="50" onkeydown="isEntry(event)" /><span style="display: none; font-size: 12px; filter: alpha(opacity=0); height: 15px; color: #FFED97; margin-left: 14px;">大写锁定键已开启！</span>
+                    </div>
+                    <div class="div_login_07">
+                        <div class="div_login_08">记住用户名</div>
+                        <div id="div_login" class="div_login_09"></div>
+                        <div class="div_login_10">找回密码</div>
+                    </div>
+                    <div class="div_login_button"></div>
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>
+
+<script type="text/javascript">
+
+    function isEntry(e) {
+        if (document.all)
+            e = event;
+        if (e.keyCode == 13) {
+            $(".div_login_button").click();
+        }
+    }
+    /*
+	* 说明：1、本页面的效果已通过IE8、IE9、IE10、FireFox、Safari 等浏览器的测试，如果套用效果与效果图有任何的差别，请认真核查；
+	*       2、页面底部的脚本代码是必须存在的并且不能做任何的修改；
+	*       3、记住用户名的样式是 “div_login_09_2”,不记录用户名的样式是“div_login_09”
+	*       4、用户名输入框与密码输入框的事件已添加，请见以下脚本
+	*/
+    function SetCookie(cookieName, cookieValue) {
+        var today = new Date();
+        var expiresDate = new Date(today.getTime() + 30 * 24 * 60 * 60 * 1000);//30 days * 24 hrs * 60 minutes * 60 seconds * 1000 milliseconds
+        document.cookie = cookieName + '=' + cookieValue + ';expires=' + expiresDate.toGMTString();
+    }
+    function GetCookie(cookieName) {
+        var arg = cookieName + "=";
+        if (document.cookie != null) {
+            var cookies = document.cookie.split(";");
+            for (var i = 0; i < cookies.length; i++) {
+                if (cookies[i].indexOf(arg) >= 0) {
+                    return cookies[i].substr(cookies[i].indexOf(arg) + arg.length);
+                }
+            }
+        }
+        return "";
+    }
+
+    //点击登录提交按钮
+    $(".div_login_button").click(function () {
+        $(this).attr("class", "div_login_button_down");
+        if ($("#txt_login_name").val() == "请输入用户名") {
+            return;
+        }
+        if ($("#txt_Pwd_02").val() == "请输入登录密码") {
+            return;
+        }
+        $.post("@Url.Content("~/")verification/index",
+					{ LoginName: $("#txt_login_name").val(), Password: $("#txt_Pwd_02").val() },
+						function (message) {
+						    if (message == "用户名错误") {
+						        $(this).showTip("1", "提示", message, function () { });
+						        $("#txt_login_name").val("请输入用户名");
+						    } else if (message == "密码错误") {
+						        $(this).showTip("1", "提示", message, function () {
+						            $("#txt_Pwd_01").show();
+						            $("#txt_Pwd_01").val("请输入登录密码");
+						            $("#txt_Pwd_02").val("");
+						            $("#txt_Pwd_02").hide();
+						        });
+						    } 
+						    else {
+						        if ($("#div_login").attr("class") == "div_login_09") {
+						            SetCookie("LoginName", $("#txt_login_name").val());
+						        }
+
+						        window.location.href = message.split('|')[1] == '' ? " @Url.Content("~/")Default/index" : message.split('|')[1];
+                            }
+						}
+			);
+    });
+        $(document).ready(function () {
+            //找回密码
+
+            $(".div_login_01").height($(window).height());
+            $(".div_login_10").hoverEvent();
+            $(".div_login_button").hoverEvent();
+
+            //从Cookie取回用户名
+            var loginName = GetCookie("LoginName");
+            if (loginName != null && loginName != "") {
+                $("#txt_login_name").val(loginName);
+            }
+            //记住用户名
+            $("#div_login").click(function () {
+                if ($(this).attr("class") == "div_login_09") {
+                    $(this).attr("class", "div_login_09_2");
+                }
+                else {
+                    $(this).attr("class", "div_login_09");
+                }
+            });
+            //用户名
+            $(".txt_login").click(function () {
+                if ($(this).val() == "请输入用户名") {
+                    $(this).val("");
+                }
+            });
+            $(".txt_login").blur(function () {
+                if ($.trim($(this).val()) == "") {
+                    $(this).val("请输入用户名");
+                }
+            });
+
+            //密码
+            $("#txt_Pwd_01").focus(function () {
+                if ($(this).val() == "请输入登录密码") {
+                    $(this).hide();
+                    $("#txt_Pwd_02").show();
+                    $("#txt_Pwd_02").val("");
+                    $("#txt_Pwd_02").focus();
+                }
+            });
+            $("#txt_Pwd_02").blur(function () {
+                if ($.trim($(this).val()) == "") {
+                    $(this).hide();
+                    $("#txt_Pwd_01").show();
+                    $("#txt_Pwd_01").val("请输入登录密码");
+                }
+            });
+            $(".div_login_10").click(function () {
+                $(this).showDialog("@Url.Content("~/")Verification/ResetPassword", 500, 300, "找回密码");
+            })
+        });
+        function detectCapsLock(event) {
+
+            var e = event || window.event;
+            var o = e.target || e.srcElement;
+            var oTip = o.nextSibling;
+            var keyCode = e.keyCode || e.which; // 按键的keyCode
+            var isShift = e.shiftKey || (keyCode == 16) || false; // shift键是否按住
+            if (
+            ((keyCode >= 65 && keyCode <= 90) && !isShift) // Caps Lock 打开，且没有按住shift键
+            || ((keyCode >= 97 && keyCode <= 122) && isShift)// Caps Lock 打开，且按住shift键
+            ) {
+                // oTip.style.display = "";
+                $("#txt_Pwd_02").inputTip("大写锁定键已开启！！");
+
+            }
+
+            else { oTip.style.display = 'none'; }
+        }
+        document.getElementById('txt_Pwd_01').onkeypress = detectCapsLock;
+        document.getElementById('txt_Pwd_02').onkeypress = detectCapsLock;
+
+
+</script>
