@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdInfo.cs" />
     <Compile Include="AreaInfo.cs" />
     <Compile Include="Core\AjaxBackResult.cs" />
     <Compile Include="Core\IPagedList.cs" />

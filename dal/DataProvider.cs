@@ -225,6 +225,59 @@ namespace callcenter.dal
             return pt;
         }
 
+
+        public static int NewAd(string imagePath)
+        {
+            using (SqlDataReader reader = SqlHelper.ExecuteReader(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "NewAd", new SqlParameter("@ImagePath", imagePath)))
+            {
+                if (reader.Read())
+                {
+                    return Convert.ToInt32(reader["AdId"]);
+                }
+                return 0;
+            }
+        }
+
+        public static void DeleteAd(int adid)
+        {
+            SqlHelper.ExecuteNonQuery(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "DeleteAd", new SqlParameter("@AdId", adid));
+        }
+
+        public static List<AdInfo> GetAds()
+        {
+            List<AdInfo> ads = new List<AdInfo>();
+
+            using (SqlDataReader reader = SqlHelper.ExecuteReader(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "GetAds"))
+            {
+                while (reader.Read())
+                {
+                    AdInfo ai = new AdInfo();
+                    ai.AdId = Convert.ToInt32(reader["AdId"]);
+                    ai.ImagePath = Convert.ToString(reader["ImagePath"]);
+
+                    ads.Add(ai);
+                }
+            }
+
+            return ads;
+        }
+
+        public static AdInfo GetAdInfoById(int adid)
+        {
+            using (SqlDataReader reader = SqlHelper.ExecuteReader(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "GetAdInfoById", new SqlParameter("@AdId", adid)))
+            {
+                if (reader.Read())
+                {
+                    AdInfo ai = new AdInfo();
+                    ai.AdId = Convert.ToInt32(reader["AdId"]);
+                    ai.ImagePath = Convert.ToString(reader["ImagePath"]);
+                    return ai;
+                }
+                return null;
+            }
+        }
+
+
         #endregion
     }
 }

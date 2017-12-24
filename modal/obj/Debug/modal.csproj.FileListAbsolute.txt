@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\modal\obj\Debug\modal.csprojResolveAssemblyReference.cache
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\modal\bin\Debug\modal.dll
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\modal\bin\Debug\modal.pdb
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\modal\obj\Debug\modal.dll
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\modal\obj\Debug\modal.pdb
+=======
+F:\技术项目\callcenter\callcenter\modal\bin\Debug\modal.dll
+F:\技术项目\callcenter\callcenter\modal\bin\Debug\modal.pdb
+F:\技术项目\callcenter\callcenter\modal\obj\Debug\modal.dll
+F:\技术项目\callcenter\callcenter\modal\obj\Debug\modal.pdb
+>>>>>>> 3d56ea18ed733788842f50e591fa947059b9b9e6

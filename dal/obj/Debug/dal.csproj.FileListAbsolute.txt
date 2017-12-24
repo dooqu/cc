@@ -1,4 +1,3 @@
-C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\dal\obj\Debug\dal.csprojResolveAssemblyReference.cache
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\dal\bin\Debug\dal.dll
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\dal\bin\Debug\dal.pdb
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\dal\bin\Debug\modal.dll
