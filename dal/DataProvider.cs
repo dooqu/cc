@@ -13,7 +13,7 @@ namespace callcenter.dal
 {
     public class DataProvider
     {
-
+        #region Session
         public static int NewSession(SessionInfo si)
         {
             return Convert.ToInt32(SqlHelper.ExecuteScalar(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "NewSession",
@@ -43,6 +43,7 @@ namespace callcenter.dal
             }
             return null;
         }
+        #endregion
 
         #region  JobInfo
         public static int AddJobInfo(JobInfo ci)
@@ -224,8 +225,9 @@ namespace callcenter.dal
             PagedTable pt = new PagedTable(ds.Tables[0], pi, pageSize, RowTotal);
             return pt;
         }
+        #endregion
 
-
+        #region Ad
         public static int NewAd(string imagePath)
         {
             using (SqlDataReader reader = SqlHelper.ExecuteReader(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "NewAd", new SqlParameter("@ImagePath", imagePath)))
@@ -277,7 +279,119 @@ namespace callcenter.dal
             }
         }
 
+        #endregion
+
+        #region ServiceUser
+        /// <summary>
+        /// 添加客服账号
+        /// </summary>
+        /// <param name="sui"></param>
+        /// <returns></returns>
+        public static int AddServiceUser(ServiceUserInfo sui)
+        {
+            return Convert.ToInt32(SqlHelper.ExecuteScalar(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "AddServiceUser",
+                new SqlParameter("@UserName", sui.UserName),
+                new SqlParameter("@PassWord", sui.PassWord),
+                new SqlParameter("@Function1", sui.Function1),
+                new SqlParameter("@Function2", sui.Function2),
+                new SqlParameter("@Function3", sui.Function3),
+                new SqlParameter("@Function4", sui.Function4),
+                new SqlParameter("@Function5", sui.Function5),
+                new SqlParameter("@Function6", sui.Function6)));
+
+        }
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <param name="NewPassWord"></param>
+        /// <returns></returns>
+        public static int UpdatePwd(int Id, string NewPassWord)
+        {
+            return Convert.ToInt32(SqlHelper.ExecuteScalar(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "UpdatePwd",
+                new SqlParameter("@ID", Id),
+                new SqlParameter("@PassWord", NewPassWord)));
+        }
+        /// <summary>
+        /// 更新客服权限
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <param name="NewPassWord"></param>
+        /// <returns></returns>
+        public static int UpdateFunction(ServiceUserInfo sui)
+        {
+            return Convert.ToInt32(SqlHelper.ExecuteScalar(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "UpdateFunction",
+                new SqlParameter("@ID", sui.ID),
+                new SqlParameter("@PassWord", sui.PassWord),
+                new SqlParameter("@Function1", sui.Function1),
+                new SqlParameter("@Function2", sui.Function2),
+                new SqlParameter("@Function3", sui.Function3),
+                new SqlParameter("@Function4", sui.Function4),
+                new SqlParameter("@Function5", sui.Function5),
+                new SqlParameter("@Function6", sui.Function6)
+                ));
+        }
+
+        public static ServiceUserInfo GetSUserByUName(string UserName)
+        {
+            using (SqlDataReader reader = SqlHelper.ExecuteReader(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "GetSUserByName",
+    new SqlParameter("@UserName", UserName)))
+            {
+                if (reader.Read())
+                {
+                    ServiceUserInfo sui = new ServiceUserInfo();
+                    ReadServiceUserInfo(sui, reader);
+                    return sui;
+                }
+            }
+
+            return null;
+        }
+
+        public static void ReadServiceUserInfo(ServiceUserInfo sui, SqlDataReader reader)
+        {
+            sui.ID = Convert.ToInt32(reader["ID"]);
+            sui.UserName = Convert.ToString(reader["UserName"]);
+            sui.PassWord = Convert.ToString(reader["PassWord"]);
+            sui.Function1 = Convert.ToBoolean(reader["Function1"]);
+            sui.Function2 = Convert.ToBoolean(reader["Function2"]);
+            sui.Function3 = Convert.ToBoolean(reader["Function3"]);
+            sui.Function4 = Convert.ToBoolean(reader["Function4"]);
+            sui.Function5 = Convert.ToBoolean(reader["Function5"]);
+            sui.Function6 = Convert.ToBoolean(reader["Function6"]);
+            sui.Status = Convert.ToInt32(reader["Status"]);
+            sui.CreateTime = Convert.ToDateTime(reader["CreateTime"]);
+            sui.IsDelete = Convert.ToInt32(reader["IsDelete"]);
+        }
+
+        /// <summary>
+        /// 功能：查询分页数据
+        /// 日期：2017-12-19
+        /// </summary>
+        /// <param name="sqlStr">查询SQL</param>
+        /// <param name="pi">页码</param>
+        /// <param name="pageSize">每页显示条数</param>
+        /// <param name="parList">参数类型</param>
+        /// <returns></returns>
+        public static PagedTable GetSUserList(string strWhere, int pi, int pageSize)
+        {
+            int RowTotal = 0;
+
+            SqlParameter[] sp = new SqlParameter[4];
+            sp[0] = new SqlParameter("@PageSize", pageSize);
+            sp[1] = new SqlParameter("@PageIndex", pi);
+            SqlParameter spara = new SqlParameter("@TotalCount", RowTotal);
+            spara.Direction = ParameterDirection.Output;
+            sp[2] = spara;
+            sp[3] = new SqlParameter("@strWhere", strWhere);
+
+            DataSet ds = SqlHelper.ExecuteDataset(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "GetSUserList", sp);
+            RowTotal = Convert.ToInt32(ds.Tables[1].Rows[0][0]);
+            PagedTable pt = new PagedTable(ds.Tables[0], pi, pageSize, RowTotal);
+            return pt;
+        }
 
         #endregion
+
     }
 }

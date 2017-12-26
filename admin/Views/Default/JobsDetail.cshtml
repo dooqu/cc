@@ -498,8 +498,6 @@
         });
 
         $(".imgemp").each(function () {
-
-            //alert($(this).find(".img_emp_photo").attr("src"))
             var eImg = $(this).find(".eImages");
             $(this).find(".img_emp_photo").mousemove(function (e) {
                 eImg.css("display", "block");
@@ -514,26 +512,8 @@
             });
 
             $(this).click(function () {
-                window.open($(this).find(".img_emp_photo").attr("src"));
+                window.open($(this).find(".img_emp_photo").attr("src"),'查看图片','top = 0, left = 0, toolbar = no, menubar = no, location = no, status = no');
             });
         })
-
-        //for (i = 0; i < 5; i++) {
-        //    $("#img" + i).mousemove(function (e) {
-        //        $("#eImages" + i).css("display", "block");
-        //        $("#eImages" + i).html('<img src="' + this.src + '" />');
-        //        $("#eImages" + i).css("top", $(document.body).scrollTop() + e.clientY + 10 + "px");
-        //        $("#eImages" + i).css("left", $(document.body).scrollLeft() + e.clientX + 10 + "px");
-        //    });
-
-        //    $("#img" + i).mouseout(function (e) {
-        //        $("#eImages" + i).html("");
-        //        $("#eImages" + i).css("display", "none");
-        //    });
-
-        //    $("#img" + i).click(function () {
-        //        window.open(this.src);
-        //    });
-        //}
     });
 </script>

@@ -24,10 +24,15 @@ namespace admin
                defaults: new { controller = "Verification", action = "Index", id = UrlParameter.Optional }
            );
             routes.MapRoute(
-               name: "BankCardChange",
+               name: "SUser",
                url: "{controller}/{action}/{id}",
-               defaults: new { controller = "BankCardChange", action = "AcceptingList", id = UrlParameter.Optional }
+               defaults: new { controller = "SUser", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+              name: "Ad",
+              url: "{controller}/{action}/{id}",
+              defaults: new { controller = "Ad", action = "Index", id = UrlParameter.Optional }
+           );
         }
     }
 }

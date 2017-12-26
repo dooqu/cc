@@ -118,6 +118,22 @@
 	background-position:16px 7px;padding-top:15px;font-size:13px;font-weight:bold;
 }
 
+.div_main_left_menu_05
+{
+	color:#ccc;border-bottom:1px dashed #999;padding-bottom:12px;width:155px;margin:0px auto;padding-left:60px;background:url(../images/menu/customer_rwdxx.png) no-repeat;
+	background-position:16px 5px;padding-top:15px;font-size:13px;cursor:pointer;
+}
+.div_main_left_menu_05_hover
+{
+	color:#fff;border-bottom:1px dashed #999;padding-bottom:12px;width:155px;margin:0px auto;padding-left:60px;background:url(../images/menu/customer_rwdxx.png) no-repeat;
+	background-position:16px 7px;padding-top:15px;font-size:13px;cursor:pointer;
+}
+.div_main_left_menu_05_a
+{
+	color:#fff;border-bottom:1px dashed #999;padding-bottom:12px;width:155px;margin:0px auto;padding-left:60px;background:url(../images/menu/customer_rwdxx.png) no-repeat;
+	background-position:16px 7px;padding-top:15px;font-size:13px;font-weight:bold;
+}
+
 /* 登录开始 */
 .div_login_01
 {
@@ -798,4 +814,119 @@
     display: none;
     z-index: 2;
     border: 5px solid #f4f4f4;
+}
+
+.btn_data_add
+{
+	border-style:none;cursor:pointer;width:26px;height:26px;margin-right:10px;background:url(../images/menu/btn_list_add.png);
+}
+.btn_data_add_hover
+{
+	border-style:none;cursor:pointer;width:26px;height:26px;margin-right:10px;background:url(../images/menu/btn_list_01.png);
+}
+/* dialog */
+.div_dialog
+{	
+	height:300px;
+	width:700px;
+	position:absolute;
+	z-index:10;
+	left:0px;
+	top:0px;
+	border-top:0px;
+	display:none;
+}
+.div_dialog_title
+{	
+	height:50px;margin-top:0px;
+}
+.div_dialog_t_cotent
+{
+	float:left;		
+	height:50px;	
+	background:url(../images/dialog_title_bg.png) repeat-x;	width:100%;
+}
+.div_dialog_t_text
+{
+	font-weight:bold;color:#000;padding-left:20px;padding-top:18px;float:left;font-size:14px;
+}
+.div_dialog_t_close
+{
+	float:left;height:50px;width:7px;background:url(../images/dialog_title_bg_r.png);
+}
+.div_dialog_close
+{
+	background:url(../images/dialog_close.png) no-repeat;
+	height:31px;
+	width:31px;
+	cursor:pointer;
+	float:right;
+	margin-right:5px;
+	margin-right:12px;	
+	margin-top:10px;
+}
+.div_dialog_close_hover
+{
+	background:url(../images/dialog_close_hover.png) no-repeat;
+	height:31px;
+	width:31px;
+	cursor:pointer;
+	float:right;
+	margin-right:12px;	
+	margin-top:10px;
+}
+.div_dialog_content
+{
+	height:100px;	
+	margin-top:0px;
+	border:10px solid #ccc;border-top:0px;border-bottom:0px;background:#fff;
+}
+.div_dialog_b_l
+{
+	height:10px;background:url(../images/div_dialog_b_l.png);float:left;
+}
+.div_dialog_b_r
+{
+	width:17px;height:10px;background:url(../images/div_dialog_b_r.png);float:left;
+}
+
+.txt
+{
+	height:18px;border:1px solid #ccc;padding-left:2px;color:#666;background:#fff;
+}
+
+.txt_search
+{
+	border:1px solid #ccc;height:15px;padding-left:2px;padding-top:3px;background:#fff;
+}
+
+.div_main_left_menu_06
+{
+	color:#ccc;border-bottom:1px dashed #999;padding-bottom:12px;width:155px;margin:0px auto;padding-left:60px;background:url(../images/menu/left_menu_a.png) no-repeat;
+	background-position:16px -35px;padding-top:15px;font-size:13px;cursor:pointer;
+}
+.div_main_left_menu_06_hover
+{
+	color:#fff;border-bottom:1px dashed #999;padding-bottom:12px;width:155px;margin:0px auto;padding-left:60px;background:url(../images/menu/left_menu_a_hover.png) no-repeat;
+	background-position:16px -33px;padding-top:15px;font-size:13px;cursor:pointer;
+}
+.div_main_left_menu_06_a
+{
+	color:#fff;border-bottom:1px dashed #999;padding-bottom:12px;width:155px;margin:0px auto;padding-left:60px;background:url(../images/menu/left_menu_a_hover.png) no-repeat;
+	background-position:16px -33px;padding-top:15px;font-size:13px;font-weight:bold;
+}
+.div_main_left_menu_07
+{
+	color:#ccc;border-bottom:1px dashed #999;padding-bottom:12px;width:155px;margin:0px auto;padding-left:60px;background:url(../images/menu/customer_stdgl.png) no-repeat;
+	background-position:16px 5px;padding-top:15px;font-size:13px;cursor:pointer;
+}
+.div_main_left_menu_07_hover
+{
+	color:#fff;border-bottom:1px dashed #999;padding-bottom:12px;width:155px;margin:0px auto;padding-left:60px;background:url(../images/menu/customer_stdgl.png) no-repeat;
+	background-position:16px 7px;padding-top:15px;font-size:13px;cursor:pointer;
+}
+.div_main_left_menu_07_a
+{
+	color:#fff;border-bottom:1px dashed #999;padding-bottom:12px;width:155px;margin:0px auto;padding-left:60px;background:url(../images/menu/customer_stdgl.png) no-repeat;
+	background-position:16px 7px;padding-top:15px;font-size:13px;font-weight:bold;
 }

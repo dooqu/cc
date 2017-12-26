@@ -30,13 +30,28 @@ namespace callcenter.bll
         }
 
 
-        public static PagedTable GetJobsByType(SearchCondition pageQuery)
+        public static PagedTable GetJobsByType(JobInfo pageQuery)
         {
-            string strWhere = " and JobType=" + pageQuery.JobType;
+            string strWhere = " and IsDelete=0 and JobType=" + pageQuery.JobType;
 
             if (pageQuery.Status != -1)
             {
                 strWhere += " and Status=" + pageQuery.Status;
+            }
+
+            if (!string.IsNullOrEmpty(pageQuery.UserName))
+            {
+                strWhere += " and UserName like '%" + pageQuery.UserName + "%'";
+            }
+
+            if (!string.IsNullOrEmpty(pageQuery.IdentityCard))
+            {
+                strWhere += " and IdentityCard like '%" + pageQuery.IdentityCard + "%'";
+            }
+
+            if (!string.IsNullOrEmpty(pageQuery.MobilePhone))
+            {
+                strWhere += " and MobilePhone like '%" + pageQuery.MobilePhone + "%'";
             }
 
             return DataProvider.GetDataByPage(strWhere, pageQuery.Page, pageQuery.Rows);

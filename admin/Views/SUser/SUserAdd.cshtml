@@ -1,0 +1,97 @@
+﻿@model callcenter.modal.ServiceUserInfo
+@{
+    Layout = null;
+}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="@Url.Content("~/ContentV2/CSS/Main_new.css")" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="@Url.Content("~/ContentV2/JS/JQuery-1.9.1.min.js")"></script>
+</head>
+<body class="body_content">
+    <div class="div_oms_tab">
+        <div class='div_oms_tab_item_left_a' id="tab_01" onclick="javascript:location.href=' @Url.Action("Index", "SUser")';">账号管理</div>
+        <div class='div_oms_tab_item_right_a'></div>
+
+        <div class="div_oms_list_operator">
+
+        </div>
+    </div>
+    <form id="SUserAddForm" method="post">
+       
+        <div class="line_top"></div>
+        <div class="line_center">
+            <div class="div_detail_title"></div>
+            <table cellpadding="0" cellspacing="0" class="table_detail">
+                <tr>
+                    <td class="td_detail_01">账号</td>
+                    <td class="td_detail_02">
+                        @Html.TextBoxFor(r => r.UserName, new { @class = "txt" })
+                    </td>
+                    <td class="td_detail_01">密码</td>
+                    <td class="td_detail_02">
+                        @Html.TextBoxFor(r => r.PassWord, new { @class = "txt" })
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_detail_01">贷款结清-权限</td>
+                    <td class="td_detail_02">
+                        @Html.CheckBoxFor(r => r.Function1)
+                    </td>
+                    <td class="td_detail_01">手机号变更-权限</td>
+                    <td class="td_detail_02">
+                        @Html.CheckBoxFor(r => r.Function2)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_detail_01">银行卡变更-权限</td>
+                    <td class="td_detail_02">
+                        @Html.CheckBoxFor(r => r.Function3)
+                    </td>
+                    <td class="td_detail_01">征信查询-权限</td>
+                    <td class="td_detail_02">
+                        @Html.CheckBoxFor(r => r.Function4)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_detail_01">账号管理-权限</td>
+                    <td class="td_detail_02">
+                        @Html.CheckBoxFor(r => r.Function5)
+                    </td>
+                    <td class="td_detail_01">广告管理-权限</td>
+                    <td class="td_detail_02">@Html.CheckBoxFor(r => r.Function6)</td>
+                </tr>
+
+            </table>
+            <div class="div_detail_bottom">
+                <input type="button" class="btn_detail_01" id="btnSave" value="保存" />
+                <input type="button" class="btn_detail_back" onclick="javascript: window.location.href ='@Url.Action("Index", "SUser")'" />
+            </div>
+        </div>
+        <div class="line_bottom"></div>
+    </form>
+
+</body>
+</html>
+<script type="text/javascript">
+    $("#btnSave").click(function () {
+        if ($.trim($("#UserName").val()) =="") {
+            alert("账号不能为空！");
+            return false;
+        }
+
+        if ($.trim($("#PassWord").val()) =="")
+        {
+            alert("密码不能为空！");
+            return false;
+        }
+        var detailsUrl = '@Url.Action("SUserAddSave")';
+        $.post(detailsUrl, $("#SUserAddForm").serialize(), function (result) {
+            alert(result.Message);
+            if (result.Code == 200) {
+                window.location.href = '@Url.Action("Index", "SUser")';
+            }
+        });
+    });
+</script>

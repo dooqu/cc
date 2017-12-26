@@ -18,17 +18,18 @@ namespace admin.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            ServiceUserInfo model = (ServiceUserInfo)Session["User"];
+            return View(model);
         }
 
-        public ActionResult JobIndex(SearchCondition pageQuery)
+        public ActionResult JobIndex(JobInfo pageQuery)
         {
             ViewData["JobType"] = pageQuery.JobType;
             ViewData["Status"] = pageQuery.Status;
             return View(pageQuery);
         }
 
-        public ActionResult JobsList(SearchCondition pageQuery)
+        public ActionResult JobsList(JobInfo pageQuery)
         {
             PagedTable result = Jobs.GetJobsByType(pageQuery);
             return result.ToJsonResult();

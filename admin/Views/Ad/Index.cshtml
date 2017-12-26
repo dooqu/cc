@@ -1,0 +1,53 @@
+﻿@using Trirand.Web.Mvc
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>中国国际技术智力合作公司OMS系统</title>
+    @*<title>@ViewBag.Title</title>*@
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="none" name="Robots" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!-- 样式 -->
+    <link href="@Url.Content("~/ContentV2/CSS/Main_new.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/ContentV2/CSS/JQuery-UI.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/ContentV2/CSS/JQGrid.css")" rel="stylesheet" type="text/css" />
+    <!-- JS -->
+    <script type="text/javascript" src="@Url.Content("~/ContentV2/JS/JQuery-1.9.1.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/ContentV2/JS/JQGrid-Language.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/ContentV2/JS/JQGrid.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/ContentV2/JS/fan.Common.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/ContentV2/js/fan.Dialog.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/JS/jquery.blockUI.js")"></script>
+
+</head>
+<body class="body_content">
+    <!-- TAB 页面 -->
+    <br />
+    <div class="div_oms_tab">
+        <div class='div_oms_tab_item_left_a' id="tab_01" onclick="javascript:location.href=' @Url.Action("Index", "Ad")';">广告管理</div>
+        <div class='div_oms_tab_item_right_a'></div>
+        <div class="div_oms_list_operator">
+            <input type="button" class="btn_data_add" text="添加" onclick="SelectChecker()" />
+        </div>
+    </div>
+    <div class="line_top"></div>
+    <div class="line_center">
+        <div id="tab_content1" class="div_page_content">
+            <div class="div_right_list_01" style="margin-top: 0px">
+               广告管理
+            </div>
+        </div>
+        <div class="div_detail_bottom">
+        </div>
+    </div>
+    <div class="line_bottom"></div>
+
+    <script type="text/javascript">
+        function SelectChecker() {
+            var detailsUrl = '@Url.Action("AdAdd")';
+            window.location.href = detailsUrl;
+        }
+    </script>
+</body>
+</html>

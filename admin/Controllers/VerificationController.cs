@@ -1,4 +1,6 @@
 ﻿using admin.Core;
+using callcenter.bll;
+using callcenter.modal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,23 +25,24 @@ namespace admin.Controllers
         }
 
         [HttpPost]
-        public string Index(LoginModel model)
+        public string Index(ServiceUserInfo model)
         {
 
-            if (model.LoginName!="fanyihua")
+            ServiceUserInfo sui=ServiceUser.GetSUserByUName(model.UserName);
+
+            if (sui==null)
             {
                 return "用户名错误";
             }
-            else if (model.Password!="123")
+            else if (model.PassWord != sui.PassWord)
             {
                 return "密码错误";
             }
             else
             {
-                FormsAuthentication.SetAuthCookie(model.LoginName, true);
+                FormsAuthentication.SetAuthCookie(model.UserName, true);
 
-                this.Session["User"] = model;
-                this.Session["UserName"] = model.LoginName;
+                this.Session["User"] = sui;
 
                 string ReturnUrl = this.HttpContext.Request.UrlReferrer == null ? string.Empty : Server.UrlDecode(System.Text.RegularExpressions.Regex.Match(this.HttpContext.Request.UrlReferrer.Query, @"ReturnUrl=([^&]*)?").Groups[1].ToString()) == "/" ? string.Empty : Server.UrlDecode(System.Text.RegularExpressions.Regex.Match(this.HttpContext.Request.UrlReferrer.Query, @"ReturnUrl=([^&]*)?").Groups[1].ToString());
 
@@ -47,6 +50,5 @@ namespace admin.Controllers
                 return "登陆成功" + "|" + (string.IsNullOrEmpty(ReturnUrl) ? ReturnUrl : "http://" + this.HttpContext.Request.Url.Host + ":" + this.HttpContext.Request.Url.Port + ReturnUrl);
             }
         }
-
     }
 }

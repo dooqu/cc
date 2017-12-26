@@ -1,20 +1,37 @@
 ﻿@{Layout = "~/Views/Shared/_Layout.cshtml";}
+@model callcenter.modal.ServiceUserInfo
+@using callcenter.modal
 <div class="div_oms_main">
     <div class="div_oms_main_left">
         <div class="div_content_logo"></div>
         <div class="div_oms_content_logo"></div>
+        @Html.HiddenFor(r => r.Function1)
         <!-- 菜单 -->
+        @if ( @Model.Function1) { 
         <div class="div_main_left_menu_01_a" name="menu" onclick="ShowContent('JobIndex/0', 'false');">贷款结清证明申请</div>
+        }
+        @if ( @Model.Function2) {
         <div class="div_main_left_menu_02" name="menu" onclick="ShowContent('JobIndex/1', 'false');">手机号变更申请</div>
+        }
+        @if ( @Model.Function3) {
         <div class="div_main_left_menu_03" name="menu" onclick="ShowContent('JobIndex/2', 'false');">银行卡变更申请</div>
+        }
+        @if ( @Model.Function4) {
         <div class="div_main_left_menu_04" name="menu" onclick="ShowContent('JobIndex/3', 'false');">征信查询核实申请</div>
-        <div class="div_oms_main_exit" onclick="javascript: window.location.href = '/Platform/OMSDefault'"></div>
+        }
+        @if ( @Model.Function5) {
+        <div class="div_main_left_menu_05" name="menu" onclick="ShowContent('/SUser', 'false');">账号管理</div>
+        }
+        @if (@Model.Function6)
+        {
+            <div class="div_main_left_menu_06" name="menu" onclick="ShowContent('/Ad', 'false');">广告管理</div>
+        }
     </div>
     <div class="div_oms_main_right">
         <div class="div_oms_user_site">
             <div class="div_oms_user_info"></div>
             <div class="div_oms_user_info_login">
-                @Session["UserName"]
+               @Model.UserName
             </div>
         </div>
 
@@ -32,6 +49,8 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $(".frm_Content").attr("src", "JobIndex/0");
+        if ($("#Function1").val()) {
+            $(".frm_Content").attr("src", "JobIndex/0");
+        }
     });
 </script>
