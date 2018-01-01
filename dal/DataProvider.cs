@@ -240,9 +240,9 @@ namespace callcenter.dal
             }
         }
 
-        public static void DeleteAd(int adid)
+        public static int DeleteAd(int adid)
         {
-            SqlHelper.ExecuteNonQuery(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "DeleteAd", new SqlParameter("@AdId", adid));
+            return Convert.ToInt32(SqlHelper.ExecuteScalar(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "DeleteAd", new SqlParameter("@AdId", adid)));
         }
 
         public static List<AdInfo> GetAds()

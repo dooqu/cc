@@ -4,18 +4,29 @@ using System.Text;
 using System.Web;
 using callcenter.dal;
 using callcenter.modal;
+using callcenter.modal.Core;
 
 namespace callcenter.bll
 {
     public class Ads
     {
-        public static int NewAd(string imagePath)
+        public static ReturnMessage NewAd(string imagePath)
         {
-            return DataProvider.NewAd(imagePath);
+            int result = DataProvider.NewAd(imagePath);
+
+            if (result > 0)
+            {
+                return new ReturnMessage(EnumResultState.Success.ToString(), "处理成功");
+            }
+            else
+            {
+                return new ReturnMessage(EnumResultState.Failing.ToString(), "处理失败");
+            }
         }
 
-        public static void DeleteAd(int adid)
+        public static ReturnMessage DeleteAd(int adid)
         {
+            int result = 0;
             AdInfo ai = GetAdInfoById(adid);
 
             if (ai != null)
@@ -26,8 +37,17 @@ namespace callcenter.bll
                 }
                 finally
                 {
-                    DataProvider.DeleteAd(adid);
+                    result = DataProvider.DeleteAd(adid);
                 }
+            }
+
+            if (result > 0)
+            {
+                return new ReturnMessage(EnumResultState.Success.ToString(), "处理成功");
+            }
+            else
+            {
+                return new ReturnMessage(EnumResultState.Failing.ToString(), "处理失败");
             }
 
         }

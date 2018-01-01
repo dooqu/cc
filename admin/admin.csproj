@@ -13,13 +13,14 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>admin</RootNamespace>
     <AssemblyName>admin</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,17 +43,15 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -83,9 +82,11 @@
     </Reference>
     <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -107,6 +108,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="Trirand.Web.Mvc">
       <HintPath>..\share\Trirand.Web.Mvc.dll</HintPath>
     </Reference>
@@ -134,6 +136,11 @@
     <Content Include="ContentV2\CSS\Main_new.css" />
     <Content Include="ContentV2\Images\bg_01.jpg" />
     <Content Include="ContentV2\Images\body_bg_new.png" />
+    <Content Include="ContentV2\Images\btn_detail_01.png" />
+    <Content Include="ContentV2\Images\btn_detail_back.png" />
+    <Content Include="ContentV2\Images\btn_detail_back_hover.png" />
+    <Content Include="ContentV2\Images\btn_detail_submit.png" />
+    <Content Include="ContentV2\Images\btn_detail_submit_hover.png" />
     <Content Include="ContentV2\Images\btn_login_bg.png" />
     <Content Include="ContentV2\Images\btn_ok_bg.gif" />
     <Content Include="ContentV2\Images\close_bg_01.gif" />
@@ -143,12 +150,24 @@
     <Content Include="ContentV2\Images\content_logo.png" />
     <Content Include="ContentV2\Images\content_logo_bg.png" />
     <Content Include="ContentV2\Images\content_logo_hover.png" />
+    <Content Include="ContentV2\Images\data_detail.png" />
+    <Content Include="ContentV2\Images\data_detail_hover.png" />
+    <Content Include="ContentV2\Images\delete.png" />
+    <Content Include="ContentV2\Images\dialog_close.png" />
+    <Content Include="ContentV2\Images\dialog_close_hover.png" />
+    <Content Include="ContentV2\Images\dialog_title_bg.png" />
+    <Content Include="ContentV2\Images\dialog_title_bg_r.png" />
+    <Content Include="ContentV2\Images\div_dialog_b_l.png" />
+    <Content Include="ContentV2\Images\div_dialog_b_r.png" />
     <Content Include="ContentV2\Images\div_exit_customer.png" />
     <Content Include="ContentV2\Images\div_exit_customer_hover.png" />
     <Content Include="ContentV2\Images\error_bg_01.gif" />
     <Content Include="ContentV2\Images\icon.png" />
     <Content Include="ContentV2\Images\info_bg_01.gif" />
+    <Content Include="ContentV2\Images\iphoto.png" />
+    <Content Include="ContentV2\Images\line_bottom.png" />
     <Content Include="ContentV2\Images\line_top.png" />
+    <Content Include="ContentV2\Images\login_bg_02.png" />
     <Content Include="ContentV2\Images\login_bg_022.png" />
     <Content Include="ContentV2\Images\login_bg_033.png" />
     <Content Include="ContentV2\Images\login_body_bg.png" />
@@ -246,7 +265,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="File\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -290,7 +308,7 @@
     <Content Include="Views\Ad\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Ad\AdAdd.cshtml" />
+    <None Include="Properties\PublishProfiles\callCenter.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

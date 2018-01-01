@@ -1,3 +1,4 @@
+C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\service\obj\Debug\service.csprojResolveAssemblyReference.cache
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\service\bin\service.dll.config
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\service\bin\service.dll
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\service\bin\service.pdb
@@ -8,6 +9,5 @@ C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\service\bin\dal.dll
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\service\bin\bll.pdb
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\service\bin\modal.pdb
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\service\bin\dal.pdb
-C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\service\obj\Debug\service.csprojResolveAssemblyReference.cache
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\service\obj\Debug\service.dll
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\service\obj\Debug\service.pdb

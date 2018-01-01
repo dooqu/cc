@@ -1,0 +1,210 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutContentNew.cshtml";
+}
+@using Trirand.Web.Mvc
+<table id="tblSearch" style="background-color: rgb(245, 245, 245); width: 100%; border: none;">
+    <tr style="margin: 0; padding: 0;">
+        <td style="margin: 0; padding: 0;">
+            @using (Html.BeginForm())
+            {
+                <table id="mainSearchTable" style="background-color: rgb(245, 245, 245); float: left; width: 100%; border: none;">
+                    <tr>
+                        <td style="width: 5%; text-align:center; padding: 0px 1px 0px 1px;">姓名:</td>
+                        <td style="width: 20%; text-align: left; padding: 0px 1px 0px 1px;">
+                            @Html.TextBox("UserName", null,new { @class = "txt_search" })
+                        </td>
+                        <td style="width: 10%; text-align: center; padding: 0px 1px 0px 1px;">身份证号:</td>
+                        <td style="width: 20%; text-align: left; padding: 0px 1px 0px 1px;">
+                            @Html.TextBox("IdentityCard",null, new { @class = "txt_search" })
+                        </td>
+                        <td style="width: 10%; text-align: center; padding: 0px 1px 0px 1px;">手机号:</td>
+                        <td style="width: 20%; text-align: left; padding: 0px 1px 0px 1px;">
+                            @Html.TextBox("MobilePhone", null, new { @class = "txt_search" })
+                        </td>
+                        <td style ="width: 20%; text-align: center; padding: 0px 1px 0px 1px;">
+                            <input type="button" name="_ajaxSubmitOfSearch_" class="" value=" 查 询 " />
+                        </td>
+                    </tr>
+                </table>
+
+            }
+        </td>
+    </tr>
+</table>
+@if (Convert.ToInt16(@ViewData["JobType"]) == 0)
+{
+    @Html.Trirand().JQGrid(
+ new JQGrid
+ {
+     Columns = new List<JQGridColumn>
+     {
+         new JQGridColumn(){DataField="ID",PrimaryKey=true,Visible=false},
+         new JQGridColumn(){DataField="ID",HeaderText="详细",Formatter=new CustomFormatter{FormatFunction="FormatDetailsLink"},Width=30,TextAlign=TextAlign.Center,Searchable=false},
+         new JQGridColumn(){DataField="Status",HeaderText="状态",Formatter=new CustomFormatter{FormatFunction="dbStatusFmt"},Width=40,TextAlign=TextAlign.Center,Searchable=false},
+         new JQGridColumn{DataField="UserId",Visible=false},
+         new JQGridColumn{DataField="JobType",Visible=false},
+         new JQGridColumn{DataField="UserName",HeaderText="姓名", Sortable=true,Width=80},
+         new JQGridColumn{DataField="IdentityCard",HeaderText="身份证号", Sortable=true,Width=130},
+         new JQGridColumn{DataField="MobilePhone",HeaderText="手机号码", Sortable=true,Width=110,TextAlign = TextAlign.Center},
+         new JQGridColumn{DataField="Area",HeaderText="区县", Sortable=true,Width=150},
+         new JQGridColumn{DataField="Address",HeaderText="详细地址", Sortable=true,Width=200},
+         new JQGridColumn{DataField="ChannelCustomer",HeaderText="贷款渠道",Sortable=true,Width=150},
+         new JQGridColumn{DataField="CustomerRemark",HeaderText="备注信息",Sortable=true,Width=200},
+         new JQGridColumn{DataField="CreateDateTime",HeaderText="申请时间", Sortable=true,Width=120,TextAlign = TextAlign.Center,Formatter=new CustomFormatter(){FormatFunction="datetimeFormatter"}},
+     },
+     ID = "BankCardChange",
+     MultiSelect = false,
+     DataUrl = Url.Action("JobsList", new { Status = ViewData["Status"], JobType = ViewData["JobType"] }),
+     AppearanceSettings = new AppearanceSettings { ShowRowNumbers = true },
+     AutoWidth = true,
+     PagerSettings = new PagerSettings { PageSize = 30 },
+     Height = 520,
+     ShrinkToFit = false
+ }
+ , "BankCardChange")
+}
+
+@if (Convert.ToInt16(@ViewData["JobType"]) == 1)
+{
+    @Html.Trirand().JQGrid(
+ new JQGrid
+ {
+     Columns = new List<JQGridColumn>
+     {
+         new JQGridColumn(){DataField="ID",PrimaryKey=true,Visible=false},
+         new JQGridColumn(){DataField="ID",HeaderText="详细",Formatter=new CustomFormatter{FormatFunction="FormatDetailsLink"},Width=30,TextAlign=TextAlign.Center,Searchable=false},
+         new JQGridColumn(){DataField="Status",HeaderText="状态",Formatter=new CustomFormatter{FormatFunction="dbStatusFmt"},Width=40,TextAlign=TextAlign.Center,Searchable=false},
+         new JQGridColumn{DataField="UserId",Visible=false},
+         new JQGridColumn{DataField="JobType",Visible=false},
+         new JQGridColumn{DataField="UserName",HeaderText="姓名", Sortable=true,Width=80},
+         new JQGridColumn{DataField="IdentityCard",HeaderText="身份证号", Sortable=true,Width=130},
+         new JQGridColumn{DataField="MobilePhone",HeaderText="手机号码", Sortable=true,Width=110,TextAlign = TextAlign.Center},
+         new JQGridColumn{DataField="MobileChangeType",HeaderText="变更类型", Sortable=true,Width=110,TextAlign = TextAlign.Center,Formatter=new CustomFormatter{FormatFunction="MobileChangeType"}},
+         new JQGridColumn{DataField="MobilePhoneOld",HeaderText="旧手机号", Sortable=true,Width=150},
+         new JQGridColumn{DataField="MobilePhoneNew",HeaderText="新手机号", Sortable=true,Width=200},
+         new JQGridColumn{DataField="ChannelCustomer",HeaderText="贷款渠道",Sortable=true,Width=150},
+         new JQGridColumn{DataField="CustomerRemark",HeaderText="备注信息",Sortable=true,Width=200},
+         new JQGridColumn{DataField="CreateDateTime",HeaderText="申请时间", Sortable=true,Width=120,TextAlign = TextAlign.Center,Formatter=new CustomFormatter(){FormatFunction="datetimeFormatter"}},
+     },
+     ID = "BankCardChange",
+     MultiSelect = false,
+     DataUrl = Url.Action("JobsList", new { Status = ViewData["Status"], JobType = ViewData["JobType"] }),
+     AppearanceSettings = new AppearanceSettings { ShowRowNumbers = true },
+     AutoWidth = true,
+     PagerSettings = new PagerSettings { PageSize = 30 },
+     Height = 520,
+     ShrinkToFit = false
+ }
+ , "BankCardChange")
+}
+
+@if (Convert.ToInt16(@ViewData["JobType"]) == 2)
+{
+    @Html.Trirand().JQGrid(
+ new JQGrid
+ {
+     Columns = new List<JQGridColumn>
+     {
+         new JQGridColumn(){DataField="ID",PrimaryKey=true,Visible=false},
+         new JQGridColumn(){DataField="ID",HeaderText="详细",Formatter=new CustomFormatter{FormatFunction="FormatDetailsLink"},Width=30,TextAlign=TextAlign.Center,Searchable=false},
+         new JQGridColumn(){DataField="Status",HeaderText="状态",Formatter=new CustomFormatter{FormatFunction="dbStatusFmt"},Width=40,TextAlign=TextAlign.Center,Searchable=false},
+         new JQGridColumn{DataField="UserId",Visible=false},
+         new JQGridColumn{DataField="JobType",Visible=false},
+         new JQGridColumn{DataField="UserName",HeaderText="姓名", Sortable=true,Width=80},
+         new JQGridColumn{DataField="IdentityCard",HeaderText="身份证号", Sortable=true,Width=130},
+         new JQGridColumn{DataField="MobilePhone",HeaderText="手机号码", Sortable=true,Width=110,TextAlign = TextAlign.Center},
+         new JQGridColumn{DataField="OldBankcard",HeaderText="旧银行卡", Sortable=true,Width=150},
+         new JQGridColumn{DataField="NewBankcard",HeaderText="新银行卡", Sortable=true,Width=200},
+         new JQGridColumn{DataField="ChannelCustomer",HeaderText="贷款渠道",Sortable=true,Width=150},
+         new JQGridColumn{DataField="CustomerRemark",HeaderText="备注信息",Sortable=true,Width=200},
+         new JQGridColumn{DataField="CreateDateTime",HeaderText="申请时间", Sortable=true,Width=120,TextAlign = TextAlign.Center,Formatter=new CustomFormatter(){FormatFunction="datetimeFormatter"}},
+     },
+     ID = "BankCardChange",
+     MultiSelect = false,
+     DataUrl = Url.Action("JobsList", new { Status = ViewData["Status"], JobType = ViewData["JobType"] }),
+     AppearanceSettings = new AppearanceSettings { ShowRowNumbers = true },
+     AutoWidth = true,
+     PagerSettings = new PagerSettings { PageSize = 30 },
+     Height = 520,
+     ShrinkToFit = false
+ }
+ , "BankCardChange")
+}
+
+@if (Convert.ToInt16(@ViewData["JobType"]) == 3)
+{
+    @Html.Trirand().JQGrid(
+ new JQGrid
+ {
+     Columns = new List<JQGridColumn>
+     {
+         new JQGridColumn(){DataField="ID",PrimaryKey=true,Visible=false},
+         new JQGridColumn(){DataField="ID",HeaderText="详细",Formatter=new CustomFormatter{FormatFunction="FormatDetailsLink"},Width=30,TextAlign=TextAlign.Center,Searchable=false},
+         new JQGridColumn(){DataField="Status",HeaderText="状态",Formatter=new CustomFormatter{FormatFunction="dbStatusFmt"},Width=40,TextAlign=TextAlign.Center,Searchable=false},
+         new JQGridColumn{DataField="UserId",Visible=false},
+         new JQGridColumn{DataField="JobType",Visible=false},
+         new JQGridColumn{DataField="UserName",HeaderText="姓名", Sortable=true,Width=80},
+         new JQGridColumn{DataField="IdentityCard",HeaderText="身份证号", Sortable=true,Width=130},
+         new JQGridColumn{DataField="MobilePhone",HeaderText="手机号码", Sortable=true,Width=110,TextAlign = TextAlign.Center},
+         new JQGridColumn{DataField="ChannelCustomer",HeaderText="贷款渠道",Sortable=true,Width=150},
+         new JQGridColumn{DataField="CustomerRemark",HeaderText="备注信息",Sortable=true,Width=200},
+         new JQGridColumn{DataField="CreateDateTime",HeaderText="申请时间", Sortable=true,Width=120,TextAlign = TextAlign.Center,Formatter=new CustomFormatter(){FormatFunction="datetimeFormatter"}},
+     },
+     ID = "BankCardChange",
+     MultiSelect = false,
+     DataUrl = Url.Action("JobsList", new { Status = ViewData["Status"], JobType = ViewData["JobType"] }),
+     AppearanceSettings = new AppearanceSettings { ShowRowNumbers = true },
+     AutoWidth = true,
+     PagerSettings = new PagerSettings { PageSize = 30 },
+     Height = 520,
+     ShrinkToFit = false
+ }
+ , "BankCardChange")
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //AJAX处理当前的请求 并调用约定的函数进行下一步操作
+        $('input[name="_ajaxSubmitOfSearch_"]').click(function () {
+            if ($.isFunction(window.__UsingContractCallBack__)) {
+                window.__UsingContractCallBack__($(this).closest('form').toObject());
+            } else {
+                window.alert('回调函数："window.__UsingContractCallBack__"未定义！');
+            }
+        });
+    })
+
+    function __UsingContractCallBack__(formObject) {
+        var _data = formObject || {};
+        $("#BankCardChange").setGridParam({ postData: null });
+        $("#BankCardChange").setGridParam({ postData: _data }).trigger("reloadGrid");
+
+    };
+
+    function FormatDetailsLink(cellValue, options, rowObject) {
+        var detailsUrl = '@Url.Action("JobsDetail")';
+        var formartResult = "<div class='div_data_detail' onclick=\"window.location.href='" + detailsUrl + "?Id=" + cellValue + "&JobType=" +@ViewData["JobType"] +"&Status=" +@ViewData["Status"] +"'\"></div>";
+        return formartResult;
+    };
+
+    function dbStatusFmt(val) {
+        switch (val) {
+            case 0:
+                return "受理中";
+            case 1:
+                return "完成";
+            case 3:
+                return "错误";
+        }
+    }
+
+    function MobileChangeType(val) {
+        switch (val) {
+            case 0:
+                return "有氧金融注册手机号";
+            case 1:
+                return "银行卡预留手机号";
+        }
+    }
+</script>
+

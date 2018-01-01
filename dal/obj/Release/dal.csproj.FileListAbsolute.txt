@@ -1,0 +1,8 @@
+C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\dal\bin\Release\dal.dll
+C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\dal\bin\Release\dal.pdb
+C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\dal\bin\Release\modal.dll
+C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\dal\bin\Release\Newtonsoft.Json.dll
+C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\dal\bin\Release\modal.pdb
+C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\dal\obj\Release\dal.csprojResolveAssemblyReference.cache
+C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\dal\obj\Release\dal.dll
+C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\dal\obj\Release\dal.pdb

@@ -52,7 +52,7 @@ namespace admin.Controllers
                 if (file != null)
                 {
                     // 文件上传后的保存路径
-                    var filePath = Server.MapPath(string.Format("~/{0}", "File"));
+                    var filePath = Server.MapPath(string.Format("~/{0}", "pics"));
                     if (!Directory.Exists(filePath))
                     {
                         Directory.CreateDirectory(filePath);
@@ -60,7 +60,7 @@ namespace admin.Controllers
 
                     var fileName = Path.GetFileName(file.FileName);
                     string fileExtension = Path.GetExtension(fileName); // 文件扩展名
-                    saveName = Guid.NewGuid().ToString() + fileExtension; // 保存文件名称
+                    saveName = Guid.NewGuid().ToString("n") + fileExtension; // 保存文件名称
 
                     file.SaveAs(Path.Combine(filePath, saveName));
                 }
