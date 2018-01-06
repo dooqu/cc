@@ -1,4 +1,3 @@
-C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\admin\obj\Debug\admin.csprojResolveAssemblyReference.cache
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\admin\bin\admin.dll.config
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\admin\bin\admin.dll
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\admin\bin\admin.pdb
@@ -31,5 +30,6 @@ C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\admin\bin\zh-Hans\Syste
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\admin\bin\zh-Hans\System.Web.WebPages.resources.dll
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\admin\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\admin\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
+C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\admin\obj\Debug\admin.csprojResolveAssemblyReference.cache
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\admin\obj\Debug\admin.dll
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\admin\obj\Debug\admin.pdb

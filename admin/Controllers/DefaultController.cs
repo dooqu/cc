@@ -23,12 +23,6 @@ namespace admin.Controllers
             return View(model);
         }
 
-        //public ActionResult JobIndex(JobInfo pageQuery)
-        //{
-        //    ViewData["JobType"] = pageQuery.JobType;
-        //    ViewData["Status"] = pageQuery.Status;
-        //    return View(pageQuery);
-        //}
         public ActionResult JobIndex(int JobType, int UrlStatus=0)
         {
             ViewData["JobType"] = JobType;
