@@ -54,7 +54,7 @@
      },
      ID = "BankCardChange",
      MultiSelect = false,
-     DataUrl = Url.Action("JobsList", new { Status = ViewData["Status"], JobType = ViewData["JobType"] }),
+     DataUrl = Url.Action("JobsList", new { Status = ViewData["UrlStatus"], JobType = ViewData["JobType"] }),
      AppearanceSettings = new AppearanceSettings { ShowRowNumbers = true },
      AutoWidth = true,
      PagerSettings = new PagerSettings { PageSize = 30 },
@@ -88,7 +88,7 @@
      },
      ID = "BankCardChange",
      MultiSelect = false,
-     DataUrl = Url.Action("JobsList", new { Status = ViewData["Status"], JobType = ViewData["JobType"] }),
+     DataUrl = Url.Action("JobsList", new { Status = ViewData["UrlStatus"], JobType = ViewData["JobType"] }),
      AppearanceSettings = new AppearanceSettings { ShowRowNumbers = true },
      AutoWidth = true,
      PagerSettings = new PagerSettings { PageSize = 30 },
@@ -121,7 +121,7 @@
      },
      ID = "BankCardChange",
      MultiSelect = false,
-     DataUrl = Url.Action("JobsList", new { Status = ViewData["Status"], JobType = ViewData["JobType"] }),
+     DataUrl = Url.Action("JobsList", new { Status = ViewData["UrlStatus"], JobType = ViewData["JobType"] }),
      AppearanceSettings = new AppearanceSettings { ShowRowNumbers = true },
      AutoWidth = true,
      PagerSettings = new PagerSettings { PageSize = 30 },
@@ -152,7 +152,7 @@
      },
      ID = "BankCardChange",
      MultiSelect = false,
-     DataUrl = Url.Action("JobsList", new { Status = ViewData["Status"], JobType = ViewData["JobType"] }),
+     DataUrl = Url.Action("JobsList", new { Status = ViewData["UrlStatus"], JobType = ViewData["JobType"] }),
      AppearanceSettings = new AppearanceSettings { ShowRowNumbers = true },
      AutoWidth = true,
      PagerSettings = new PagerSettings { PageSize = 30 },
@@ -183,7 +183,7 @@
 
     function FormatDetailsLink(cellValue, options, rowObject) {
         var detailsUrl = '@Url.Action("JobsDetail")';
-        var formartResult = "<div class='div_data_detail' onclick=\"window.location.href='" + detailsUrl + "?Id=" + cellValue + "&JobType=" +@ViewData["JobType"] +"&Status=" +@ViewData["Status"] +"'\"></div>";
+        var formartResult = "<div class='div_data_detail' onclick=\"window.location.href='" + detailsUrl + "?Id=" + cellValue + "&JobType=" +@ViewData["JobType"] +"&UrlStatus=" +@ViewData["UrlStatus"] +"'\"></div>";
         return formartResult;
     };
 

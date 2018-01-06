@@ -94,7 +94,7 @@ namespace callcenter.dal
         /// <param name="status">处理状态</param>
         /// <param name="errMsg">错误信息</param>
         /// <param name="imageName">贷款结清申请电子版</param>
-        public static int UpdateJobStatus(int JobId, int status, string errMsg, string imageName, int UserId, string ExpressNumber, string DueBillNumber)
+        public static int UpdateJobStatus(int JobId, int status, string errMsg, string imageName, int UserId, string ExpressNumber, string DueBillNumber, string HandleMessage)
         {
             return Convert.ToInt32(SqlHelper.ExecuteScalar(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "UpdateJobStatus",
                 new SqlParameter("@JobId", JobId),
@@ -103,7 +103,8 @@ namespace callcenter.dal
                 new SqlParameter("@errMsg", errMsg),
                 new SqlParameter("@ExpressNumber", ExpressNumber),
                 new SqlParameter("@DueBillNumber", DueBillNumber),
-                new SqlParameter("@imageName", imageName)));
+                new SqlParameter("@imageName", imageName),
+                new SqlParameter("@HandleMessage", HandleMessage)));
         }
 
         public static void ReadJobInfo(JobInfo job, SqlDataReader reader)
@@ -129,7 +130,6 @@ namespace callcenter.dal
             job.Address = reader["Address"] == DBNull.Value ? "" : Convert.ToString(reader["Address"]);
             job.ExpressNumber = reader["ExpressNumber"] == DBNull.Value ? "" : Convert.ToString(reader["ExpressNumber"]);
             job.DueBillNumber = reader["DueBillNumber"] == DBNull.Value ? "" : Convert.ToString(reader["DueBillNumber"]);
-            //job.ClearanceImage = reader["ClearanceImage"] == DBNull.Value ? "" : Convert.ToString(reader["ClearanceImage"]);
 
             job.MobileChangeType = Convert.ToInt32(reader["MobileChangeType"]);
             job.MobilePhoneOld = reader["MobilePhoneOld"] == DBNull.Value ? "" : Convert.ToString(reader["MobilePhoneOld"]);
@@ -143,6 +143,7 @@ namespace callcenter.dal
             job.Image3 = reader["Image3"] == DBNull.Value ? null : Convert.ToString(reader["Image3"]);
             job.Image4 = reader["Image4"] == DBNull.Value ? null : Convert.ToString(reader["Image4"]);
             job.Image5 = reader["Image5"] == DBNull.Value ? null : Convert.ToString(reader["Image5"]);
+            job.HandleMessage = reader["HandleMessage"] == DBNull.Value ? "" : Convert.ToString(reader["HandleMessage"]);
 
         }
 

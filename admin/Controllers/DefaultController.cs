@@ -22,11 +22,17 @@ namespace admin.Controllers
             return View(model);
         }
 
-        public ActionResult JobIndex(JobInfo pageQuery)
+        //public ActionResult JobIndex(JobInfo pageQuery)
+        //{
+        //    ViewData["JobType"] = pageQuery.JobType;
+        //    ViewData["Status"] = pageQuery.Status;
+        //    return View(pageQuery);
+        //}
+        public ActionResult JobIndex(int JobType, int UrlStatus=0)
         {
-            ViewData["JobType"] = pageQuery.JobType;
-            ViewData["Status"] = pageQuery.Status;
-            return View(pageQuery);
+            ViewData["JobType"] = JobType;
+            ViewData["UrlStatus"] = UrlStatus;
+            return View();
         }
 
         public ActionResult JobsList(JobInfo pageQuery)
@@ -35,18 +41,30 @@ namespace admin.Controllers
             return result.ToJsonResult();
         }
 
-        public ActionResult JobsDetail(int Id, int JobType, int Status)
+        public ActionResult JobsDetail(int Id, int JobType, int UrlStatus)
         {
             ViewData["JobType"] = JobType;
-            ViewData["Status"] = Status;
+            ViewData["UrlStatus"] = UrlStatus;
             var entity = Jobs.GetJobInfoById(Id);
             return View(entity);
         }
 
         [HttpPost]
-        public ActionResult JobEditSave(int ID, int Status, string errMsg="", string ExpressNumber="", string DueBillNumber="", HttpPostedFileBase file=null)
+        public ActionResult JobEditSave(int ID, int Status, string ErrorMessage = "", string ExpressNumber = "", string DueBillNumber = "", HttpPostedFileBase file = null, string oldImage4 = "", string HandleMessage="")
         {
             string saveName = "";
+
+            if (Status == 3)
+            {
+                ExpressNumber = "";
+                DueBillNumber = "";
+            }
+
+            if (Status == 1)
+            {
+                ErrorMessage = "";
+            }
+
             try
             {
                 if (file != null)
@@ -71,7 +89,24 @@ namespace admin.Controllers
                 return Json(BuildAjaxBackResult(new ReturnMessage(EnumResultState.Failing.ToString(), "处理失败，保存文件错误！")));
             }
 
-            ReturnMessage messge = Jobs.UpdateJobStatus(ID, Status, errMsg, saveName, 100, ExpressNumber, DueBillNumber);
+            ReturnMessage messge = Jobs.UpdateJobStatus(ID, Status, ErrorMessage, saveName, 100, ExpressNumber, DueBillNumber, HandleMessage);
+
+            try
+            {
+                if (!string.IsNullOrEmpty(oldImage4) && file != null)
+                {
+                    System.IO.File.Delete(Server.MapPath("/") + "/pics/" + oldImage4);
+                }
+
+                if (!string.IsNullOrEmpty(oldImage4) && Status == 3)
+                {
+                    System.IO.File.Delete(Server.MapPath("/") + "/pics/" + oldImage4);
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(BuildAjaxBackResult(new ReturnMessage(EnumResultState.Failing.ToString(), "处理成功，删除原文件失败！")));
+            }
 
             return Json(BuildAjaxBackResult(messge));
         }

@@ -10,13 +10,13 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/admin.dll">
-      <publishTime>01/01/2018 15:20:24</publishTime>
+      <publishTime>01/05/2018 14:20:25</publishTime>
     </File>
     <File Include="bin/bll.dll">
-      <publishTime>01/01/2018 15:20:23</publishTime>
+      <publishTime>01/05/2018 14:20:25</publishTime>
     </File>
     <File Include="bin/dal.dll">
-      <publishTime>01/01/2018 14:42:43</publishTime>
+      <publishTime>01/05/2018 14:20:25</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>12/16/2017 21:54:23</publishTime>
@@ -25,7 +25,7 @@
       <publishTime>12/16/2017 21:54:24</publishTime>
     </File>
     <File Include="bin/modal.dll">
-      <publishTime>12/30/2017 14:22:13</publishTime>
+      <publishTime>01/05/2018 14:20:24</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>12/16/2017 21:54:23</publishTime>
@@ -76,7 +76,7 @@
       <publishTime>12/16/2017 22:20:28</publishTime>
     </File>
     <File Include="ContentV2/CSS/Main_new.css">
-      <publishTime>12/26/2017 22:04:35</publishTime>
+      <publishTime>01/04/2018 16:39:27</publishTime>
     </File>
     <File Include="ContentV2/Images/bg_01.jpg">
       <publishTime>06/27/2017 15:42:41</publishTime>
@@ -484,16 +484,16 @@
       <publishTime>12/30/2017 21:02:14</publishTime>
     </File>
     <File Include="Views/Default/JobIndex.cshtml">
-      <publishTime>12/26/2017 21:22:32</publishTime>
+      <publishTime>01/05/2018 11:27:07</publishTime>
     </File>
     <File Include="Views/Default/JobsDetail.cshtml">
-      <publishTime>01/01/2018 14:37:47</publishTime>
+      <publishTime>01/05/2018 14:28:54</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
       <publishTime>12/30/2017 18:36:51</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutContentNew.cshtml">
-      <publishTime>12/23/2017 18:31:41</publishTime>
+      <publishTime>01/05/2018 11:21:56</publishTime>
     </File>
     <File Include="Views/SUser/Index.cshtml">
       <publishTime>12/30/2017 20:14:01</publishTime>

@@ -12,47 +12,47 @@
 <body class="body_content">
         <div class="div_oms_tab">
             <input name="StatusNew" id="StatusNew" type="hidden" value="@Model.Status" />
-            @{if (Convert.ToInt16(ViewData["Status"]) == 0)
+            @{if (Convert.ToInt16(ViewData["UrlStatus"]) == 0)
             {
-                <div class='div_oms_tab_item_left_a' id="tab_01" onclick="javascript:location.href=' @Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = 0 })';">受理中</div>
+                <div class='div_oms_tab_item_left_a' id="tab_01" onclick="javascript:location.href=' @Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], UrlStatus = 0 })';">受理中</div>
                 <div class='div_oms_tab_item_right_a'></div>
             }
             else
             {
-                <div class='div_oms_tab_item_left' id="tab_01" onclick="javascript:location.href=' @Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = 0 })';">受理中</div>
+                <div class='div_oms_tab_item_left' id="tab_01" onclick="javascript:location.href=' @Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], UrlStatus = 0 })';">受理中</div>
                 <div class='div_oms_tab_item_right'></div>
             }}
 
-            @{if (Convert.ToInt16(ViewData["Status"]) == 1)
+            @{if (Convert.ToInt16(ViewData["UrlStatus"]) == 1)
             {
-                <div class='div_oms_tab_item_left_a' id="tab_02" onclick="javascript:location.href=' @Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = 1 })';">处理完毕</div>
+                <div class='div_oms_tab_item_left_a' id="tab_02" onclick="javascript:location.href=' @Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], UrlStatus = 1 })';">处理完毕</div>
                 <div class='div_oms_tab_item_right_a'></div>
             }
             else
             {
-                <div class='div_oms_tab_item_left' id="tab_02" onclick="javascript:location.href=' @Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = 1 })';">处理完毕</div>
+                <div class='div_oms_tab_item_left' id="tab_02" onclick="javascript:location.href=' @Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], UrlStatus = 1 })';">处理完毕</div>
                 <div class='div_oms_tab_item_right'></div>
             }}
 
-            @{if (Convert.ToInt16(ViewData["Status"]) == 3)
+            @{if (Convert.ToInt16(ViewData["UrlStatus"]) == 3)
             {
-                <div class="div_oms_tab_item_left_a" id="tab_03" onclick="javascript:location.href='@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = 3 })';">错误</div>
+                <div class="div_oms_tab_item_left_a" id="tab_03" onclick="javascript:location.href='@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], UrlStatus = 3 })';">错误</div>
                 <div class="div_oms_tab_item_right_a"></div>
             }
             else
             {
-                <div class="div_oms_tab_item_left" id="tab_03" onclick="javascript:location.href='@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = 3 })';">错误</div>
+                <div class="div_oms_tab_item_left" id="tab_03" onclick="javascript:location.href='@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], UrlStatus = 3 })';">错误</div>
                 <div class="div_oms_tab_item_right"></div>
             }}
 
-            @{if (Convert.ToInt16(ViewData["Status"]) == -1)
+            @{if (Convert.ToInt16(ViewData["UrlStatus"]) == -1)
             {
-                <div class="div_oms_tab_item_left_a" id="tab_04" onclick="javascript:location.href='@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = -1 })';">全部</div>
+                <div class="div_oms_tab_item_left_a" id="tab_04" onclick="javascript:location.href='@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], UrlStatus = -1 })';">全部</div>
                 <div class="div_oms_tab_item_right_a"></div>
             }
             else
             {
-                <div class="div_oms_tab_item_left" id="tab_04" onclick="javascript:location.href='@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = -1 })';">全部</div>
+                <div class="div_oms_tab_item_left" id="tab_04" onclick="javascript:location.href='@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], UrlStatus = -1 })';">全部</div>
                 <div class="div_oms_tab_item_right"></div>
             }}
             <div class="div_oms_list_operator">
@@ -283,47 +283,44 @@
             </table>
            
 
-            @*@if (Convert.ToInt16(@ViewData["Status"]) == 0)
-            {*@
                 <div class="div_detail_title">处理操作</div>
                 <table cellpadding="0" cellspacing="0" class="table_detail">
-                    @if (Model.Status == 0)
-                    {
-                        <tr>
-                            <td class="td_detail_01">状态</td>
-                            <td class="td_detail_02" colspan="3">
-                                @Html.RadioButtonFor(m => m.Status, 1)处理完成
-                                @Html.RadioButtonFor(m => m.Status, 3)错误
-                            </td>
-                        </tr>
-                    }
-                    else
-                    {
-                        <tr>
-                            <td class="td_detail_01">状态</td>
-                            <td class="td_detail_02" colspan="3">
-                                @if (Model.Status == 1)
-                                {<div>处理完成</div>}
-                                @if (Model.Status == 3)
-                                {<div>错误</div>}
-                            </td>
-                        </tr>
-                    }
+                    <tr>
+                        <td class="td_detail_01">状态</td>
+                        <td class="td_detail_02" colspan="3">
+                            @*@Html.RadioButtonFor(m => m.Status, 0, new { @class = "st" })处理中*@
+                            @Html.RadioButtonFor(m => m.Status, 1, new { @class = "st" })处理完成
+                            @Html.RadioButtonFor(m => m.Status, 3, new { @class = "st" })错误
+                        </td>
+                    </tr>
 
                     @if (Convert.ToInt16(@ViewData["JobType"]) == 0)
-                    {
-                        if (Model.Status == 0)
                         {
-                            <tr class="err">
-                                <td class="td_detail_01">快递单号</td>
-                                <td class="td_detail_02">
-                                    @Html.EditorFor(m => m.ExpressNumber, new { @class = "txt_area" })
-                                </td>
-                                <td class="td_detail_01">借据号</td>
-                                <td class="td_detail_02">
-                                    @Html.EditorFor(m => m.DueBillNumber, new { @class = "txt_area" })
-                                </td>
-                            </tr>
+                        <tr class="err">
+                            <td class="td_detail_01">快递单号</td>
+                            <td class="td_detail_02">
+                                @Html.EditorFor(m => m.ExpressNumber, new { @class = "txt_area" })
+                            </td>
+                            <td class="td_detail_01">借据号</td>
+                            <td class="td_detail_02">
+                                @Html.EditorFor(m => m.DueBillNumber, new { @class = "txt_area" })
+                            </td>
+                        </tr>
+                            if (!string.IsNullOrWhiteSpace(@Model.Image4))
+                            {
+                                <tr class="err">
+                                    <td class="td_detail_01">贷款结清单电子版</td>
+                                    <td class="td_detail_02" colspan="3">
+                                        <div class="imgemp">
+                                            <div class="democss">
+                                                <input type="hidden" id="oldImage4" name="oldImage4" value="@Model.Image4" />
+                                                <img id="img6" src='~/pics/@Model.Image4' class="img_emp_photo" width="100px" height="100px" />
+                                            </div>
+                                            <div id="eImages6" class="eImages"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
                             <tr class="err">
                                 <td class="td_detail_01">贷款结清单电子版</td>
                                 <td class="td_detail_02" colspan="3">
@@ -331,31 +328,7 @@
                                 </td>
                             </tr>
                         }
-                        
-                         if (Model.Status == 1)
-                        {
-                            <tr>
-                                <td class="td_detail_01">快递单号</td>
-                                <td class="td_detail_02">
-                                    @Model.ExpressNumber
-                                </td>
-                                <td class="td_detail_01">借据号</td>
-                                <td class="td_detail_02">
-                                    @Model.DueBillNumber
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="td_detail_01">贷款结清单电子版</td>
-                                <td class="td_detail_02" colspan="3">
-                                    <div class="imgemp">
-                                        <div class="democss">
-                                            <img id="img6" src='~/pics/@Model.Image4' class="img_emp_photo" width="100px" height="100px" />
-                                        </div>
-                                        <div id="eImages6" class="eImages"></div>
-                                    </div></td>
-                            </tr>
-                        }
-                    }
+
                     <tr id="joberr" style="display: none;">
                         <td class="td_detail_01">错误信息</td>
                         <td class="td_detail_02" colspan="3">
@@ -369,15 +342,13 @@
                         <td></td>
                     </tr>
                 </table>
-            @*}*@
+
             <div class="div_detail_bottom">
-                @{
-                    if (Model.Status == 0)
-                    {
-                        <input type="button" class="btn_detail_01" id="btnSave" value="保存" />
-                    }
-                }
-                <input type="button" class="btn_detail_back" onclick="javascript: window.location.href ='@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = ViewData["Status"] })'" />
+                @*@if (Model.Status != 3)
+                {*@
+                    <input type="button" class="btn_detail_01" id="btnSave" value="保存" />
+                @*}*@
+                <input type="button" class="btn_detail_back" onclick="javascript: window.location.href ='@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = ViewData["UrlStatus"] })'" />
             </div>
         </div>
         <div class="line_bottom"></div>
@@ -388,8 +359,15 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
+
+        //if ($("#StatusNew").val() != 0)
+        //{
+        //    $(".st").each(function () { $(this).attr("disabled", "true"); });
+        //}
+
         if ($('input[type=radio][name=Status]').val() == 3 || $("#StatusNew").val() == 3) {
             $("#joberr").show();
+            $(".err").each(function () { $(this).hide(); });
         }
 
 
@@ -416,28 +394,10 @@
         }
         //验证逻辑
         function check() {
-            var reg = /^[0-9.]{1,20}$/;
-            if ($('input[type=radio][name=Status]:checked').val() != 1 && $('input[type=radio][name=Status]:checked').val() != 3) {
-                alert("请选择处理状态！");
-                return false;
-            }
-            var JobType = $('#JobType').val();
-            var Status = $("#Status").val();
-            if (JobType == 0 && Status == 1) {
-                if ($("#ExpressNumber").val() == '') {
-                    alert("必须填写快递单号！");
-                    return false;
-                }
 
-                if ($("#DueBillNumber").val() == '') {
-                    alert("必须填写借据号！");
-                    return false;
-                }
-                var file = getNameFromPath($("#file").val());
-                if (file == null) {
-                    alert("必须选择贷款结清单电子版！");
-                    return false;
-                }
+            if ($('input[type=radio][name=Status]:checked').val() != 1 && $('input[type=radio][name=Status]:checked').val() != 3) {
+                alert("必须选择处理状态！");
+                return false;
             }
 
             var ErrorMessage = $("#ErrorMessage").val();
@@ -450,34 +410,7 @@
 
         $("#btnSave").click(function () {
             if (check()) {
-                var Id = $("#ID").val();
-                var status = $('input[type=radio][name=Status]:checked').val();
-                var JobType = $('#JobType').val();
-                var ErrorMessage = "";
-                var ExpressNumber = "";
-                var DueBillNumber = "";
-                if (status == 3) {
-                    ErrorMessage = escape($("#ErrorMessage").val());
-                    $("#ExpressNumber").val("");
-                    $("#DueBillNumber").val("");
-                }
-
-                if (JobType == 0 && status != 3) {
-                    ExpressNumber = escape($("#ExpressNumber").val());
-                    DueBillNumber = escape($("#DueBillNumber").val());
-                }
-
                 var detailsUrl = '@Url.Action("JobEditSave")';
-                if (status == 3) {
-                    var postUrl = detailsUrl + "?ID=" + Id + "&Status=" + status + "&errMsg=" + ErrorMessage;
-                    $.post(postUrl, function (result) {
-                        alert(result.Message);
-                        if (result.Code == 200) {
-                            window.location.href = '@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = 0 })';
-                        }
-                    }, 'json');
-                }
-                else {
                     var uploadFormData = new FormData($('#WaitAcceptEditForm')[0]);//序列化表单，$("form").serialize()只能序列化数据，不能序列化文件
                     $.ajax({
                         type: 'POST',
@@ -489,11 +422,10 @@
                         success: function (result) {
                             alert(result.Message);
                             if (result.Code == 200) {
-                                window.location.href = '@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = 0 })';
+                                window.location.href = '@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], UrlStatus = ViewData["UrlStatus"] })';
                             }
                         }
                     });
-                }
             }
         });
 

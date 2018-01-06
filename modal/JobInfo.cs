@@ -51,6 +51,9 @@ namespace callcenter.modal
         //是否删除 0 否 1 是
         [DataMember]
         public int IsDelete { get; set; }
+        //客服处理描述
+        [DataMember]
+        public string HandleMessage { get; set; }
         #endregion
 
         #region 贷款结清证明申请表

@@ -57,9 +57,9 @@ namespace callcenter.bll
             return DataProvider.GetDataByPage(strWhere, pageQuery.Page, pageQuery.Rows);
         }
 
-        public static ReturnMessage UpdateJobStatus(int JobId, int status, string errMsg, string imageName, int UserId, string ExpressNumber, string DueBillNumber)
+        public static ReturnMessage UpdateJobStatus(int JobId, int status, string errMsg, string imageName, int UserId, string ExpressNumber, string DueBillNumber, string HandleMessage)
         {
-            int result = DataProvider.UpdateJobStatus(JobId, status, errMsg, imageName, UserId,ExpressNumber,DueBillNumber);
+            int result = DataProvider.UpdateJobStatus(JobId, status, errMsg, imageName, UserId, ExpressNumber, DueBillNumber, HandleMessage);
 
             if (result > 0)
             {

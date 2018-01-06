@@ -24,47 +24,47 @@
     <!-- TAB 页面 -->
     <br />
     <div class="div_oms_tab">
-        @{if (Convert.ToInt16(ViewData["Status"]) == 0)
+        @{if (Convert.ToInt16(ViewData["UrlStatus"]) == 0)
         {
-            <div class='div_oms_tab_item_left_a' id="tab_01" onclick="javascript:location.href=' @Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = 0 })';">受理中</div>
+            <div class='div_oms_tab_item_left_a' id="tab_01" onclick="javascript:location.href=' @Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], UrlStatus = 0 })';">受理中</div>
             <div class='div_oms_tab_item_right_a'></div>
         }
         else
         {
-            <div class='div_oms_tab_item_left' id="tab_01" onclick="javascript:location.href=' @Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = 0 })';">受理中</div>
+            <div class='div_oms_tab_item_left' id="tab_01" onclick="javascript:location.href=' @Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], UrlStatus = 0 })';">受理中</div>
             <div class='div_oms_tab_item_right'></div>
         }}
 
-        @{if (Convert.ToInt16(ViewData["Status"]) == 1)
+        @{if (Convert.ToInt16(ViewData["UrlStatus"]) == 1)
         {
-            <div class='div_oms_tab_item_left_a' id="tab_02" onclick="javascript:location.href=' @Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = 1 })';">处理完毕</div>
+            <div class='div_oms_tab_item_left_a' id="tab_02" onclick="javascript:location.href=' @Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], UrlStatus = 1 })';">处理完毕</div>
             <div class='div_oms_tab_item_right_a'></div>
         }
         else
         {
-            <div class='div_oms_tab_item_left' id="tab_02" onclick="javascript:location.href=' @Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = 1 })';">处理完毕</div>
+            <div class='div_oms_tab_item_left' id="tab_02" onclick="javascript:location.href=' @Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], UrlStatus = 1 })';">处理完毕</div>
             <div class='div_oms_tab_item_right'></div>
         }}
 
-        @{if (Convert.ToInt16(ViewData["Status"]) == 3)
+        @{if (Convert.ToInt16(ViewData["UrlStatus"]) == 3)
         {
-            <div class="div_oms_tab_item_left_a" id="tab_03" onclick="javascript:location.href='@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = 3 })';">错误</div>
+            <div class="div_oms_tab_item_left_a" id="tab_03" onclick="javascript:location.href='@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], UrlStatus = 3 })';">错误</div>
             <div class="div_oms_tab_item_right_a"></div>
         }
         else
         {
-            <div class="div_oms_tab_item_left" id="tab_03" onclick="javascript:location.href='@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = 3 })';">错误</div>
+            <div class="div_oms_tab_item_left" id="tab_03" onclick="javascript:location.href='@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], UrlStatus = 3 })';">错误</div>
             <div class="div_oms_tab_item_right"></div>
         }}
         
-        @{if (Convert.ToInt16(ViewData["Status"]) == -1)
+        @{if (Convert.ToInt16(ViewData["UrlStatus"]) == -1)
         {
-            <div class="div_oms_tab_item_left_a" id="tab_04" onclick="javascript:location.href='@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = -1 })';">全部</div>
+            <div class="div_oms_tab_item_left_a" id="tab_04" onclick="javascript:location.href='@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], UrlStatus = -1 })';">全部</div>
             <div class="div_oms_tab_item_right_a"></div>
         }
         else
         {
-            <div class="div_oms_tab_item_left" id="tab_04" onclick="javascript:location.href='@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], Status = -1 })';">全部</div>
+            <div class="div_oms_tab_item_left" id="tab_04" onclick="javascript:location.href='@Url.Action("JobIndex", "Default", new { JobType = @ViewData["JobType"], UrlStatus = -1 })';">全部</div>
             <div class="div_oms_tab_item_right"></div>
         }}
         <div class="div_oms_list_operator">
