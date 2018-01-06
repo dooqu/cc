@@ -33,3 +33,6 @@ C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\admin\bin\zh-Hans\Syste
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\admin\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\admin\obj\Debug\admin.dll
 C:\Users\fanyihua\Documents\GitHub\callcenter\callcenter\admin\obj\Debug\admin.pdb
+F:\技术项目\callcenter\callcenter\admin\obj\Debug\admin.csprojResolveAssemblyReference.cache
+F:\技术项目\callcenter\callcenter\admin\obj\Debug\admin.dll
+F:\技术项目\callcenter\callcenter\admin\obj\Debug\admin.pdb
