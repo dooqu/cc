@@ -8,16 +8,16 @@
         @Html.HiddenFor(r => r.Function1)
         <!-- 菜单 -->
         @if ( @Model.Function1) { 
-        <div class="div_main_left_menu_01_a" name="menu" onclick="ShowContent('@Url.Content("JobIndex/0")', 'false');">贷款结清证明申请</div>
+        <div class="div_main_left_menu_01_a" name="menu" onclick="ShowContent('@Url.Content("JobIndex/0")', 'false');">贷款结清证明申请<span id="f0" class="btn_maint_menu_top">(2)</span></div>
         }
         @if ( @Model.Function2) {
-        <div class="div_main_left_menu_02" name="menu" onclick="ShowContent('@Url.Content("JobIndex/1")', 'false');">手机号变更申请</div>
+        <div class="div_main_left_menu_02" name="menu" onclick="ShowContent('@Url.Content("JobIndex/1")', 'false');">手机号变更申请<span id="f1" class="btn_maint_menu_top">(2)</span></div>
         }
         @if ( @Model.Function3) {
-        <div class="div_main_left_menu_03" name="menu" onclick="ShowContent('@Url.Content("JobIndex/2")', 'false');">银行卡变更申请</div>
+        <div class="div_main_left_menu_03" name="menu" onclick="ShowContent('@Url.Content("JobIndex/2")', 'false');">银行卡变更申请<span id="f2" class="btn_maint_menu_top">(2)</span></div>
         }
         @if ( @Model.Function4) {
-        <div class="div_main_left_menu_04" name="menu" onclick="ShowContent('@Url.Content("JobIndex/3")', 'false');">征信查询核实申请</div>
+        <div class="div_main_left_menu_04" name="menu" onclick="ShowContent('@Url.Content("JobIndex/3")', 'false');">征信查询核实申请<span id="f3" class="btn_maint_menu_top">2</span></div>
         }
         @if ( @Model.Function5) {
         <div class="div_main_left_menu_05" name="menu" onclick="ShowContent('@Url.Content("~/SUser")', 'false');">账号管理</div>
@@ -53,4 +53,35 @@
             $(".frm_Content").attr("src", '@Url.Content("JobIndex/0")');
         }
     });
+
+    setInterval("myInterval()", 30000);//1000为1秒钟
+    var newMsgCount = 0;
+    function myInterval() {
+        $.post("@Url.Action("GetNewMsgList", "MaintManage")", null, function (data) {
+            if (data.newMsgList.length > 0)
+            {
+                 
+                var count = data.newMsgList.length
+                $("#menu_MsgCount").html("<div id='menu_MsgCount' class='btn_maint_menu_top'>" + count + "</div>");
+                var html = "";
+                for (var i = 0; i < data.newMsgList.length; i++) {
+                    html += "<li style=\" height:auto;margin:0px; padding:0px; width:100%;\">" + data.newMsgList[i].MsgTitle + "</li>";
+                }
+                if ($('.div_dialog_close').length == 0) {
+
+                    $("#Menu_xiaoxi ul").html(html);
+                    //$("#Menu_xiaoxi").css({ left: $("#menu_MsgCount").offsetLeft + 200, top: $("#menu_MsgCount").offsetTop + 100 });
+                    //$('#Menu_xiaoxi').show();
+                    $('#Menu_xiaoxi').show().delay(10000).hide(0);
+
+                }
+                newMsgCount = count;
+            }
+            if (data.newMsgList.length == 0) {
+                newMsgCount = 0;
+                $("#menu_MsgCount").html("");
+            }
+
+        }, "json")
+    }
 </script>

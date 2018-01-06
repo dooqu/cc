@@ -4,6 +4,7 @@ using System.Text;
 using callcenter.modal;
 using callcenter.dal;
 using callcenter.modal.Core;
+using System.Data;
 
 namespace callcenter.bll
 {
@@ -55,6 +56,15 @@ namespace callcenter.bll
             }
 
             return DataProvider.GetDataByPage(strWhere, pageQuery.Page, pageQuery.Rows);
+        }
+
+        /// <summary>
+        /// 统计新工单数量
+        /// </summary>
+        /// <returns></returns>
+        public static DataSet GetJobInfoCount()
+        {
+            return DataProvider.GetJobInfoCount();
         }
 
         public static ReturnMessage UpdateJobStatus(int JobId, int status, string errMsg, string imageName, int UserId, string ExpressNumber, string DueBillNumber, string HandleMessage)

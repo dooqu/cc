@@ -181,6 +181,16 @@ namespace callcenter.dal
             return null;
         }
         /// <summary>
+        /// 统计新工单数量
+        /// </summary>
+        /// <returns></returns>
+        public static DataSet GetJobInfoCount()
+        {
+            DataSet ds = SqlHelper.ExecuteDataset(ConfigurationManager.ConnectionStrings["sqlconn"].ConnectionString, "GetJobInfoCount", null);
+            return ds;
+        }
+
+        /// <summary>
         /// 获取工单列列根据工单类型
         /// </summary>
         /// <param name="jobType"></param>

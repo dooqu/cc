@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using admin.Core;
 using System.IO;
+using System.Data;
 
 namespace admin.Controllers
 {
@@ -39,6 +40,12 @@ namespace admin.Controllers
         {
             PagedTable result = Jobs.GetJobsByType(pageQuery);
             return result.ToJsonResult();
+        }
+
+        public ActionResult GetJobInfoCount()
+        {
+            DataSet result = Jobs.GetJobInfoCount();
+            return result.ToJsonResultTable();
         }
 
         public ActionResult JobsDetail(int Id, int JobType, int UrlStatus)

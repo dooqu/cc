@@ -8,16 +8,16 @@
         @Html.HiddenFor(r => r.Function1)
         <!-- 菜单 -->
         @if ( @Model.Function1) { 
-        <div class="div_main_left_menu_01_a" name="menu" onclick="ShowContent('@Url.Content("JobIndex/0")', 'false');">贷款结清证明申请</div>
+        <div class="div_main_left_menu_01_a" name="menu" onclick="ShowContent('@Url.Content("JobIndex/0")', 'false');">贷款结清证明申请<span id="f0" class="btn_maint_menu_top"></span></div>
         }
         @if ( @Model.Function2) {
-        <div class="div_main_left_menu_02" name="menu" onclick="ShowContent('@Url.Content("JobIndex/1")', 'false');">手机号变更申请</div>
+        <div class="div_main_left_menu_02" name="menu" onclick="ShowContent('@Url.Content("JobIndex/1")', 'false');">手机号变更申请<span id="f1" class="btn_maint_menu_top"></span></div>
         }
         @if ( @Model.Function3) {
-        <div class="div_main_left_menu_03" name="menu" onclick="ShowContent('@Url.Content("JobIndex/2")', 'false');">银行卡变更申请</div>
+        <div class="div_main_left_menu_03" name="menu" onclick="ShowContent('@Url.Content("JobIndex/2")', 'false');">银行卡变更申请<span id="f2" class="btn_maint_menu_top"></span></div>
         }
         @if ( @Model.Function4) {
-        <div class="div_main_left_menu_04" name="menu" onclick="ShowContent('@Url.Content("JobIndex/3")', 'false');">征信查询核实申请</div>
+        <div class="div_main_left_menu_04" name="menu" onclick="ShowContent('@Url.Content("JobIndex/3")', 'false');">征信查询核实申请<span id="f3" class="btn_maint_menu_top"></span></div>
         }
         @if ( @Model.Function5) {
         <div class="div_main_left_menu_05" name="menu" onclick="ShowContent('@Url.Content("~/SUser")', 'false');">账号管理</div>
@@ -49,8 +49,31 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
+        myInterval();
         if ($("#Function1").val()) {
             $(".frm_Content").attr("src", '@Url.Content("JobIndex/0")');
         }
     });
+
+    setInterval("myInterval()", 30000);//1000为1秒钟
+
+    function myInterval() {
+        $.post("@Url.Action("GetJobInfoCount", "Default")", null, function (data) {
+            $(".btn_maint_menu_top").each(function () { $(this).html(""); });
+            if (data.rows.length > 0)
+            {
+                for (var i = 0; i < data.rows.length; i++) {
+                    if(data.rows[i].JobType==0)
+                        $("#f0").html("(" + data.rows[i].CountNum + ")");
+                    if (data.rows[i].JobType == 1)
+                        $("#f1").html("(" + data.rows[i].CountNum + ")");
+                    if (data.rows[i].JobType == 2)
+                        $("#f2").html("(" + data.rows[i].CountNum + ")");
+                    if (data.rows[i].JobType == 3)
+                        $("#f3").html("(" + data.rows[i].CountNum + ")");
+                }
+            }
+
+        }, "json")
+    }
 </script>

@@ -10,13 +10,13 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/admin.dll">
-      <publishTime>01/05/2018 14:20:25</publishTime>
+      <publishTime>01/06/2018 10:46:58</publishTime>
     </File>
     <File Include="bin/bll.dll">
-      <publishTime>01/05/2018 14:20:25</publishTime>
+      <publishTime>01/06/2018 10:42:27</publishTime>
     </File>
     <File Include="bin/dal.dll">
-      <publishTime>01/05/2018 14:20:25</publishTime>
+      <publishTime>01/06/2018 10:42:27</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>12/16/2017 21:54:23</publishTime>
@@ -25,7 +25,7 @@
       <publishTime>12/16/2017 21:54:24</publishTime>
     </File>
     <File Include="bin/modal.dll">
-      <publishTime>01/05/2018 14:20:24</publishTime>
+      <publishTime>01/06/2018 09:09:09</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>12/16/2017 21:54:23</publishTime>
@@ -76,7 +76,7 @@
       <publishTime>12/16/2017 22:20:28</publishTime>
     </File>
     <File Include="ContentV2/CSS/Main_new.css">
-      <publishTime>01/04/2018 16:39:27</publishTime>
+      <publishTime>01/06/2018 09:47:37</publishTime>
     </File>
     <File Include="ContentV2/Images/bg_01.jpg">
       <publishTime>06/27/2017 15:42:41</publishTime>
@@ -481,13 +481,13 @@
       <publishTime>01/01/2018 14:40:18</publishTime>
     </File>
     <File Include="Views/Default/Index.cshtml">
-      <publishTime>12/30/2017 21:02:14</publishTime>
+      <publishTime>01/06/2018 09:56:38</publishTime>
     </File>
     <File Include="Views/Default/JobIndex.cshtml">
-      <publishTime>01/05/2018 11:27:07</publishTime>
+      <publishTime>01/06/2018 10:41:39</publishTime>
     </File>
     <File Include="Views/Default/JobsDetail.cshtml">
-      <publishTime>01/05/2018 14:28:54</publishTime>
+      <publishTime>01/06/2018 10:41:12</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
       <publishTime>12/30/2017 18:36:51</publishTime>

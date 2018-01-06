@@ -151,7 +151,7 @@
                         <td class="td_detail_02" colspan="3">
                             @if (@Model.MobileChangeType == 0)
                             {
-                                <div>有氧金融注册手机号</div>
+                                <div>注册手机号</div>
                             }
                             else
                             {
@@ -328,16 +328,12 @@
                                 </td>
                             </tr>
                         }
-                        
-                    @if (Model.Status != 3)
-                    {
-                        <tr>
-                            <td class="td_detail_01">处理描述</td>
-                            <td class="td_detail_02" colspan="3">
-                                @Html.TextAreaFor(x => x.HandleMessage, new { @class = "txt_area" })
-                            </td>
-                        </tr>
-                    }
+                    <tr class="err">
+                        <td class="td_detail_01">处理描述</td>
+                        <td class="td_detail_02" colspan="3">
+                            @Html.TextAreaFor(x => x.HandleMessage, new { @class = "txt_area" })
+                        </td>
+                    </tr>
                     <tr id="joberr" style="display: none;">
                         <td class="td_detail_01">错误信息</td>
                         <td class="td_detail_02" colspan="3">
