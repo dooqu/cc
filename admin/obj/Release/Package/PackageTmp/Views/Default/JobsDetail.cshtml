@@ -280,6 +280,16 @@
                         @Html.TextAreaFor(x => x.CustomerRemark, new { @class = "txt_area", disabled = "disabled" })
                     </td>
                 </tr>
+                <tr>
+                    <td class="td_detail_01">提交时间</td>
+                    <td class="td_detail_02">
+                        @Model.CreateDateTime
+                    </td>
+                    <td class="td_detail_01">完成时间</td>
+                    <td class="td_detail_02">
+                        @Model.OperationDateTime
+                    </td>
+                </tr>
             </table>
            
 

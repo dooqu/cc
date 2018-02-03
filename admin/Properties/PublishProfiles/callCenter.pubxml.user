@@ -10,7 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/admin.dll">
-      <publishTime>01/06/2018 14:38:48</publishTime>
+      <publishTime>01/18/2018 08:58:55</publishTime>
     </File>
     <File Include="bin/bll.dll">
       <publishTime>01/06/2018 12:09:46</publishTime>
@@ -73,7 +73,7 @@
       <publishTime>12/16/2017 22:20:49</publishTime>
     </File>
     <File Include="ContentV2/CSS/jquery-ui.css">
-      <publishTime>12/16/2017 22:20:28</publishTime>
+      <publishTime>01/18/2018 08:56:42</publishTime>
     </File>
     <File Include="ContentV2/CSS/Main_new.css">
       <publishTime>01/06/2018 09:47:37</publishTime>
@@ -170,6 +170,60 @@
     </File>
     <File Include="ContentV2/Images/iphoto.png">
       <publishTime>12/23/2017 10:45:46</publishTime>
+    </File>
+    <File Include="ContentV2/Images/JQSuite/document.png">
+      <publishTime>01/18/2018 08:45:32</publishTime>
+    </File>
+    <File Include="ContentV2/Images/JQSuite/folder-open.png">
+      <publishTime>01/18/2018 08:45:32</publishTime>
+    </File>
+    <File Include="ContentV2/Images/JQSuite/folder.png">
+      <publishTime>01/18/2018 08:45:32</publishTime>
+    </File>
+    <File Include="ContentV2/Images/JQSuite/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>01/18/2018 08:45:32</publishTime>
+    </File>
+    <File Include="ContentV2/Images/JQSuite/ui-bg_flat_55_fbec88_40x100.png">
+      <publishTime>01/18/2018 08:45:32</publishTime>
+    </File>
+    <File Include="ContentV2/Images/JQSuite/ui-bg_glass_75_d0e5f5_1x400.png">
+      <publishTime>01/18/2018 08:45:32</publishTime>
+    </File>
+    <File Include="ContentV2/Images/JQSuite/ui-bg_glass_85_dfeffc_1x400.png">
+      <publishTime>01/18/2018 08:45:32</publishTime>
+    </File>
+    <File Include="ContentV2/Images/JQSuite/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>01/18/2018 08:45:32</publishTime>
+    </File>
+    <File Include="ContentV2/Images/JQSuite/ui-bg_gloss-wave_55_5c9ccc_500x100.png">
+      <publishTime>01/18/2018 08:45:32</publishTime>
+    </File>
+    <File Include="ContentV2/Images/JQSuite/ui-bg_inset-hard_100_f5f8f9_1x100.png">
+      <publishTime>01/18/2018 08:45:32</publishTime>
+    </File>
+    <File Include="ContentV2/Images/JQSuite/ui-bg_inset-hard_100_fcfdfd_1x100.png">
+      <publishTime>01/18/2018 08:45:32</publishTime>
+    </File>
+    <File Include="ContentV2/Images/JQSuite/ui-icons_217bc0_256x240.png">
+      <publishTime>01/18/2018 08:45:32</publishTime>
+    </File>
+    <File Include="ContentV2/Images/JQSuite/ui-icons_2e83ff_256x240.png">
+      <publishTime>01/18/2018 08:45:32</publishTime>
+    </File>
+    <File Include="ContentV2/Images/JQSuite/ui-icons_469bdd_256x240.png">
+      <publishTime>01/18/2018 08:45:32</publishTime>
+    </File>
+    <File Include="ContentV2/Images/JQSuite/ui-icons_6da8d5_256x240.png">
+      <publishTime>01/18/2018 08:45:32</publishTime>
+    </File>
+    <File Include="ContentV2/Images/JQSuite/ui-icons_cd0a0a_256x240.png">
+      <publishTime>01/18/2018 08:45:32</publishTime>
+    </File>
+    <File Include="ContentV2/Images/JQSuite/ui-icons_d8e7f3_256x240.png">
+      <publishTime>01/18/2018 08:45:32</publishTime>
+    </File>
+    <File Include="ContentV2/Images/JQSuite/ui-icons_f9bd01_256x240.png">
+      <publishTime>01/18/2018 08:45:32</publishTime>
     </File>
     <File Include="ContentV2/Images/line_bottom.png">
       <publishTime>06/27/2017 15:42:44</publishTime>
@@ -484,10 +538,10 @@
       <publishTime>01/06/2018 11:32:53</publishTime>
     </File>
     <File Include="Views/Default/JobIndex.cshtml">
-      <publishTime>01/06/2018 10:41:39</publishTime>
+      <publishTime>01/12/2018 09:37:22</publishTime>
     </File>
     <File Include="Views/Default/JobsDetail.cshtml">
-      <publishTime>01/06/2018 10:41:12</publishTime>
+      <publishTime>01/12/2018 09:34:02</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
       <publishTime>12/30/2017 18:36:51</publishTime>
